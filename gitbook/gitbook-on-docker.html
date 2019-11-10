@@ -1,0 +1,346 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>GitBook · GitBook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        
+        
+        
+    
+    <link rel="stylesheet" href="style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../docker/docker-on-windows.md" />
+    
+    
+    <link rel="prev" href="../" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">PART 1</li>
+        
+        
+    
+        <li class="chapter active" data-level="2.1" data-path="gitbook-on-docker.html">
+            
+                <a href="gitbook-on-docker.html">
+            
+                    
+                    GitBook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../docker/docker-on-windows.md">
+            
+                <span>
+            
+                    
+                    Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >GitBook</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="gitbook-on-docker">GitBook On Docker</h2><h2 id="gitbook-&#xC18C;&#xAC1C;">GitBook &#xC18C;&#xAC1C;</h2><h2 id="&#xB3C4;&#xCEE4;&#xC5D0;&#xC11C;-gitbook-&#xC2E4;&#xD589;">&#xB3C4;&#xCEE4;&#xC5D0;&#xC11C; GitBook &#xC2E4;&#xD589;</h2><ol><li><p>&#xB3C4;&#xCEE4; &#xC774;&#xBBF8;&#xC9C0; &#xC120;&#xD0DD;</p><p><code>docker search gitbook</code></p><p>gitbook&#xC73C;&#xB85C; &#xAC80;&#xC0C9;&#xB41C; &#xC774;&#xBBF8;&#xC9C0;&#xAC00; &#xB098;&#xC624;&#xB294;&#xB370; &#xAC00;&#xC7A5; &#xB9CE;&#xC774; &#xB2E4;&#xC6B4;&#xBC1B;&#xC740; &#xC21C;&#xC73C;&#xB85C; &#xBD24;&#xC744; &#xB54C; &#xC81C;&#xC77C; &#xB192;&#xC740; &#xC774;&#xBBF8;&#xC9C0;&#xC778; <code>fellah/gitbook</code>&#xB97C; &#xAC00;&#xC838;&#xC654;&#xB2E4;.</p><pre><code class="lang-bash">docker pull fellah/gitbook</code></pre>
+</li></ol>
+<ol><li><p>&#xC2E4;&#xD589;</p><pre><code class="lang-bash">docker run -p 80:4000 -v /srv/gitbook fellah/gitbook</code></pre>
+<ul><li><p><code>4000</code> &#x2013; GitBook &#xAE30;&#xBCF8; &#xC11C;&#xBC84; &#xD3EC;&#xD2B8;</p></li>
+<li><p><code>35729</code> &#x2013; Live reload server port. &#xC2E4;&#xC2DC;&#xAC04; &#xB85C;&#xB4DC;&#xB418;&#xB294; &#xC11C;&#xBC84; &#xD3EC;&#xD2B8;?</p></li>
+<li><p><code>/srv/gitbook</code> &#x2013; &#xB370;&#xC774;&#xD130; &#xBCFC;&#xB968; &#xC124;&#xC815;&#xC744; &#xD1B5;&#xD574;  gitbook &#xC2E4;&#xD589;&#xD560; &#xACBD;&#xB85C;&#xB97C; &#xB118;&#xACA8;&#xC900;&#xB2E4;.</p></li></ul>
+<pre><code class="lang-bash"><span class="hljs-comment"># -d : &#xBC31;&#xADF8;&#xB77C;&#xC6B4;&#xB4DC;&#xC5D0;&#xC11C; &#xCEE8;&#xD14C;&#xC774;&#xB108; &#xC2E4;&#xD589;</span>
+<span class="hljs-comment"># -rm : &#xCEE8;&#xD14C;&#xC774;&#xB108; &#xC885;&#xB8CC;&#xC2DC; &#xCEE8;&#xD14C;&#xC774;&#xB108; &#xC790;&#xB3D9; &#xC0AD;&#xC81C;</span>
+docker run --name gitbook --rm <span class="hljs-_">-d</span> -p 18081:4000 -p 18082:35729 -v <span class="hljs-string">&quot;/<span class="hljs-variable">$PWD</span>/gitbook-work&quot;</span>:/srv/gitbook -it fellah/gitbook //bin/bash
+<span class="hljs-comment"># &#xCEE8;&#xD14C;&#xC774;&#xB108; &#xC811;&#xC18D;</span>
+docker attach gitbook</code></pre>
+<ol><li>&#xBE4C;&#xB4DC;(&#xC815;&#xC801; &#xC6F9;&#xD398;&#xC774;&#xC9C0;&#xB85C; &#xBE4C;&#xB4DC;)
+</li></ol>
+<pre><code class="lang-bash">docker run --rm -v <span class="hljs-string">&quot;/<span class="hljs-variable">$PWD</span>/gitbook-work&quot;</span>:/srv/gitbook fellah/gitbook gitbook build</code></pre>
+</li></ol>
+<h2 id="github&#xC5D0;-gitbook-&#xAD6C;&#xC131;&#xD558;&#xAE30;">GitHub&#xC5D0; GitBook &#xAD6C;&#xC131;&#xD558;&#xAE30;</h2><ol><li>gitbook &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xC5D0; &#xC811;&#xC18D;&#xD574;&#xC11C; gitbook &#xAD6C;&#xC131;&#xD558;&#xAE30;
+</li></ol>
+<pre><code class="lang-bash">root@de811cc0e8f2:/srv/gitbook<span class="hljs-comment"># gitbook init ./</span>
+root@de811cc0e8f2:/srv/gitbook<span class="hljs-comment"># ls -lart</span>
+total 1
+-rwxr-xr-x 1 root root 16 Nov 10 13:37 README.md
+-rwxr-xr-x 1 root root 40 Nov 10 13:37 SUMMARY.md
+drwxrwxrwx 2 root root  0 Nov 10 13:39 ..
+drwxrwxrwx 2 root root  0 Nov 10 13:41 .
+drwxrwxrwx 2 root root  0 Nov 10 13:41 _book
+root@de811cc0e8f2:/srv/gitbook<span class="hljs-comment"># gitbook serve</span></code></pre>
+<ol><li><p><a href="http://localhost:18081/" target="_blank">http://localhost:18081/</a>  &#xC811;&#xC18D;</p><p><img alt="image-20191110224840940" src="gitbook-on-docker.assets/image-20191110224840940.png"></p></li>
+<li><p>GitBook &#xAD6C;&#xC131; &#xC124;&#xBA85;</p><ul><li><p>SUMMARY.md</p><ul><li><p>&#xBA54;&#xC778; &#xCC55;&#xD130;&#xC640; &#xC11C;&#xBE0C;&#xCC55;&#xD130;&#xC758; &#xAD6C;&#xC870;&#xB97C; &#xC815;&#xC758;</p></li>
+<li><p>&#xCC45;&#xC758; &#xBAA9;&#xCC28;&#xB97C; &#xC0DD;&#xC131;&#xD558;&#xB294;&#xB370; &#xC0AC;&#xC6A9;&#xB41C;&#xB2E4;.</p></li>
+<li><p>&#xD30C;&#xC77C;&#xC758; &#xD615;&#xC2DD;&#xC740; &#xAC04;&#xB2E8;&#xD55C; &#xB9C1;&#xD06C;&#xB4E4;&#xB85C;&#xB9CC; &#xAD6C;&#xC131;&#xB418;&#xC5B4; &#xC788;&#xB2E4;.</p><pre><code class="lang-markdown"><span class="hljs-section"># Summary</span>
+
+<span class="hljs-bullet">* </span>[<span class="hljs-string">Introduction</span>](<span class="hljs-link">README.md</span>)</code></pre>
+<ul><li>&#xB9C1;&#xD06C;&#xC758; &#xC81C;&#xBAA9; = &#xCC55;&#xD130;&#xC758; &#xC81C;&#xBAA9;
+</li>
+<li>&#xB9C1;&#xD06C;&#xC758; &#xB300;&#xC0C1; = &#xD574;&#xB2F9; &#xCC55;&#xD130;&#xC758; &#xD30C;&#xC77C; &#xACBD;&#xB85C;
+</li></ul>
+</li>
+<li><p>&#xC575;&#xCEE4;&#xB3C4; &#xD65C;&#xC6A9; &#xAC00;&#xB2A5;&#xD558;&#xB2E4;.</p><pre><code class="lang-markdown"><span class="hljs-section"># Summary</span>
+
+<span class="hljs-bullet">* </span>[<span class="hljs-string">Introduction</span>](<span class="hljs-link">README.md</span>)
+
+<span class="hljs-section">### PART 1</span>
+<span class="hljs-bullet">* </span>[<span class="hljs-string">anchor-test</span>](<span class="hljs-link">anchor-test/anchor.md#section1</span>)</code></pre>
+</li></ul>
+</li></ul>
+</li></ol>
+<ul><li><p>&#xD398;&#xC774;&#xC9C0; &#xC791;&#xC131;</p><pre><code class="lang-bash">mkdir anchor-test
+touch anchor.md
+vi anchor.md</code></pre>
+<p>```markdown</p><h2 id="anchormd"># anchor.md</h2><h2 id="description-&#xD398;&#xC774;&#xC9C0;&#xC758;-&#xAC04;&#xB7B5;&#xC124;&#xBA85;&#xC785;&#xB2C8;&#xB2E4;">description: &#xD398;&#xC774;&#xC9C0;&#xC758; &#xAC04;&#xB7B5;&#xC124;&#xBA85;&#xC785;&#xB2C8;&#xB2E4;.</h2></li></ul>
+<pre><code> # section 1
+
+ &#x200B;```javascript
+ var s = &quot;JavaScript syntax highlighting&quot;;
+ alert(s);
+ &#x200B;```
+
+ &#x200B;```python
+ s = &quot;Python syntax highlighting&quot;
+ print s
+ &#x200B;```
+
+ &#x200B;```
+ No language indicated, so no syntax highlighting.
+ But let&apos;s throw in a &lt;b&gt;tag&lt;/b&gt;.
+ &#x200B;```
+ ```
+
+ ![image-20191110232047384](gitbook-on-docker.assets/image-20191110232047384.png)</code></pre>
+<ol><li><p>&#xBE4C;&#xB4DC; &#xD6C4; GitHub&#xC5D0; &#xBC30;&#xD3EC;&#xD558;&#xAE30;</p><pre><code class="lang-shell">cd gitbook
+git checkout gh-pages
+
+cd ../
+docker run --rm -v &quot;/$PWD/gitbook-work&quot;:/srv/gitbook fellah/gitbook gitbook build
+cp -rf gitbook-work/_book/* gitbook/
+
+cd gitbook
+git clean -fx node_modules
+git clean -fx _book
+
+git add .
+git commit -a -m &quot;Update docs&quot;
+git push origin gh-pages</code></pre>
+</li></ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../docker/docker-on-windows.md" class="navigation navigation-next " aria-label="Next page: Docker">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"GitBook","level":"2.1","depth":1,"next":{"title":"Docker","level":"2.2","depth":1,"path":"docker/docker-on-windows.md","ref":"docker/docker-on-windows.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"gitbook/gitbook-on-docker.md","mtime":"2019-11-10T15:20:38.954Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2019-11-10T15:21:49.702Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook.js"></script>
+    <script src="theme.js"></script>
+    
+        
+        <script src="gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
