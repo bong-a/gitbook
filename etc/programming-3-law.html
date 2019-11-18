@@ -1,0 +1,362 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>프로그래밍 관련 원칙 · GitBook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="Chocolatey.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">윈도우에서 개발환경 구성하기</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../docker/docker-on-windows10.html">
+            
+                <a href="../docker/docker-on-windows10.html">
+            
+                    
+                    윈도우10에서 도커설치하기
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../gitbook/gitbook-on-docker.html">
+            
+                <a href="../gitbook/gitbook-on-docker.html">
+            
+                    
+                    도커로 GitBook 구성하기
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="Chocolatey.html">
+            
+                <a href="Chocolatey.html">
+            
+                    
+                    Chocolatey
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Java</li>
+        
+        
+    
+
+    
+        
+        <li class="header">Spring</li>
+        
+        
+    
+
+    
+        
+        <li class="header">ElasticSearch</li>
+        
+        
+    
+
+    
+        
+        <li class="header">etc</li>
+        
+        
+    
+        <li class="chapter active" data-level="6.1" data-path="programming-3-law.html">
+            
+                <a href="programming-3-law.html">
+            
+                    
+                    프로그래밍 관련 원칙
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >프로그래밍 관련 원칙</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#xD504;&#xB85C;&#xADF8;&#xB798;&#xBC0D;-&#xAD00;&#xB828;-&#xC6D0;&#xCE59;">&#xD504;&#xB85C;&#xADF8;&#xB798;&#xBC0D; &#xAD00;&#xB828; &#xC6D0;&#xCE59;</h1><p>[TOC]</p><h2 id="&#xB514;&#xBBF8;&#xD130;-&#xBC95;&#xCE59;the-law-of-demeter">&#xB514;&#xBBF8;&#xD130; &#xBC95;&#xCE59;(The Law of Demeter)</h2><ul><li><p>&#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4; &#xAC1C;&#xBC1C; &#xAC00;&#xC774;&#xB4DC;&#xB77C;&#xC778; &#xC911; &#xD558;&#xB098;</p></li>
+<li><p>Demeter Project&#xB77C;&#xB294; &#xD504;&#xB85C;&#xADF8;&#xB798;&#xBC0D; &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xC5D0;&#xC11C; &#xC720;&#xB798;</p></li>
+<li><p>&#xCD5C;&#xC18C; &#xC9C0;&#xC2DD; &#xC6D0;&#xCE59; : &#xD55C; &#xBAA8;&#xB4C8;&#xC774; &#xAD6C;&#xD604;&#xC744; &#xC54C;&#xC544;&#xC57C; &#xD558;&#xB294; &#xB2E4;&#xB978; &#xBAA8;&#xB4C8;&#xB4E4;&#xC744; &#xCD5C;&#xB300;&#xD55C; &#xC801;&#xAC8C; &#xC720;&#xC9C0;&#xD558;&#xC790;</p></li>
+<li><p>&#xBAA8;&#xB4C8;&#xB4E4; &#xC0AC;&#xC774;&#xC758; &#xACB0;&#xD569;&#xB3C4;&#xB97C; &#xC904;&#xC5EC; &#xCF54;&#xB4DC; &#xD488;&#xC9C8;&#xC744; &#xB192;&#xC774;&#xC790;</p><ul><li>&#xACB0;&#xD569;&#xB3C4;&#xAC00; &#xB192;&#xC73C;&#xBA74; &#xADF8;&#xB9CC;&#xD07C; &#xBAA8;&#xB4C8; &#xC7AC;&#xC0AC;&#xC6A9;&#xD558;&#xAE30; &#xD798;&#xB4E6;
+</li></ul>
+</li>
+<li><p>&#xAC1D;&#xCCB4; O&#xC758; &#xBA54;&#xC18C;&#xB4DC; m&#xC740; &#xB2E4;&#xC74C;&#xC758; &#xAC1D;&#xCCB4;&#xB4E4;&#xC758; &#xD0C0;&#xC785;&#xC758; &#xBA54;&#xC18C;&#xB4DC;&#xB9CC; &#xD638;&#xCD9C;&#xD574;&#xC57C; &#xD55C;&#xB2E4;&#xB294; &#xBC95;&#xCE59;</p><ol><li>O &#xAC1D;&#xCCB4; &#xC790;&#xC2E0;&#xC758; &#xBA54;&#xC18C;&#xB4E4; (O itself)
+</li>
+<li>m&#xC758; &#xD30C;&#xB77C;&#xBBF8;&#xD130;&#xB85C; &#xB118;&#xC5B4;&#xC628; &#xAC1D;&#xCCB4;&#xB4E4;&#xC758; &#xBA54;&#xC18C;&#xB4DC;&#xB4E4;(M&apos;s parameter)
+</li>
+<li>m &#xC548;&#xC5D0;&#xC11C; &#xC0DD;&#xC131; &#xB418;&#xAC70;&#xB098; &#xCD08;&#xAE30;&#xD654;&#xB41C; &#xAC1D;&#xCCB4;&#xB4E4;&#xC758; &#xBA54;&#xC18C;&#xB4DC;&#xB4E4;(Any objects created/instantiated within M)
+</li>
+<li>O &#xAC1D;&#xCCB4;&#xC758; &#xC9C1;&#xC811; &#xC18C;&#xC720;&#xD558;&#xB294; &#xAC1D;&#xCCB4;&#xC758; &#xBA54;&#xC18C;&#xB4DC;&#xB4E4; (O&apos;s direct component objects)
+</li>
+<li>O &#xAC1D;&#xCCB4;&#xC758; m&#xC5D0;&#xC11C; &#xC811;&#xADFC;&#xC774; &#xAC00;&#xB2A5;&#xD55C; &#xC804;&#xC5ED;&#xBCC0;&#xC218;&#xC758; &#xBA54;&#xC18C;&#xB4DC;&#xB4E4;(A global variable, accessible by O, in the scope of M)
+</li></ol>
+<pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demeter</span> </span>{
+
+    <span class="hljs-keyword">private</span> A a;
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> <span class="hljs-title">func</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">example</span><span class="hljs-params">(B b)</span> </span>{
+        C c = <span class="hljs-keyword">new</span> C();
+        <span class="hljs-keyword">int</span> f = func(); <span class="hljs-comment">// 1&#xBC88;&#xC758; &#xACBD;&#xC6B0;</span>
+        b.invert(); <span class="hljs-comment">// 2&#xBC88;&#xC758; &#xACBD;&#xC6B0;</span>
+        a = <span class="hljs-keyword">new</span> A();
+        a.setActive(); <span class="hljs-comment">// 3&#xBC88;&#xC758; &#xACBD;&#xC6B0;</span>
+        c.print(); <span class="hljs-comment">// 4&#xBC88;&#xC758; &#xACBD;&#xC6B0;</span>
+        <span class="hljs-comment">// Static&#xC73C;&#xB85C; &#xC124;&#xC815;&#xB41C; Setting &#xBCC0;&#xC218;&#xAC00; &#xC788;&#xB2E4;&#xACE0; &#xAC00;&#xC815;&#xD560;&#xB54C;.</span>
+        string UserID = GlobalValues.Setting.getUserID(); <span class="hljs-comment">//5&#xC758; &#xACBD;&#xC6B0;</span>
+    }
+}</code></pre>
+<p>&#xC704; &#xC885;&#xB958;&#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; &#xAC1D;&#xCCB4;&#xC758; &#xBA54;&#xC18C;&#xB4DC;&#xB4E4;&#xB9CC; &#xD638;&#xCD9C;&#xD574;&#xC57C; &#xD558;&#xB09F;. &#xADF8;&#xB807;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; &#xC720;&#xC9C0;&#xBCF4;&#xC218; &#xCE21;&#xBA74;&#xC5D0;&#xC11C; &#xBB38;&#xC81C;&#xC810;&#xB4E4;&#xC774; &#xBC1C;&#xC0DD;&#xD55C;&#xB2E4;.</p><pre><code class="lang-java"><span class="hljs-comment">// &#xC798;&#xBABB;&#xB41C; &#xC608;&#xC2DC;</span>
+objectA.getObjectB().doSomething(); 
+
+objectA.getObjectB().getObjectC().doSomething(); </code></pre>
+<p>&#xC774;&#xB807;&#xAC8C; &#xAD6C;&#xD604;&#xC774; &#xB418;&#xBA74; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xD074;&#xB798;&#xC2A4;&#xC758; &#xBA54;&#xC18C;&#xB4DC;&#xB294; ObjectA&#xAC00; &#xBCC0;&#xACBD;&#xC774; &#xB418;&#xC5C8;&#xC744; &#xB54C;&#xB9CC; &#xCF54;&#xB4DC;&#xB97C; &#xC218;&#xC815;&#xD558;&#xAC70;&#xB098; &#xACE0;&#xBBFC;&#xD558;&#xB294; &#xAC83;&#xC774; &#xC544;&#xB2C8;&#xB77C; ObjectB,ObjectC&#xC758; &#xBCC0;&#xACBD;&#xC5D0;&#xB3C4; &#xBAA8;&#xB450; &#xAC80;&#xD1A0;&#xAC00; &#xD544;&#xC694;&#xD568;.</p><p>&#xC989;, &#xC774;&#xB7F0;&#xC2DD;&#xC73C;&#xB85C; &#xD638;&#xCD9C;&#xD558;&#xBA74; ObjectB&#xC5D0;&#xB9CC; &#xB178;&#xCD9C;&#xB418;&#xC5B4;&#xC57C; &#xD560; &#xBA54;&#xC18C;&#xB4DC;&#xB4E4;&#xC774; ObjectA&#xC5D0;&#xAC8C;&#xB3C4; &#xB178;&#xCD9C;&#xC774; &#xB41C;&#xB2E4;. &#xC774;&#xB7F0; &#xACBD;&#xC6B0;&#xC5D0; ObjectB,ObjectC&#xC758; doSomething&#xC5D0; &#xBB38;&#xC81C;&#xAC00; &#xBC1C;&#xC0DD;&#xD558;&#xBA74; &#xBAA8;&#xB4E0; &#xAC1D;&#xCCB4;(ObjectA,B,C)&#xC5D0; &#xBAA8;&#xB450; &#xC601;&#xD5A5;&#xC744; &#xBBF8;&#xCE58;&#xAC8C; &#xB41C;&#xB2E4;. &#xCD5C;&#xB300;&#xD55C; &#xB178;&#xCD9C; &#xBC94;&#xC704;&#xB97C; &#xC81C;&#xD55C;&#xD574;&#xC11C; &#xC720;&#xC9C0;&#xBCF4;&#xC218;&#xAC00; &#xC27D;&#xAC8C; &#xD574;&#xC57C;&#xD55C;&#xB2E4;.</p></li>
+<li><p>&#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;&#xC758; &#xBAA8;&#xB4E0; &#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;&#xB97C; &#xC5D4;&#xD2F0;&#xD2F0;&#xB85C; &#xC62C;&#xB9B4;&#xC218; &#xC5C6;&#xB294; &#xB178;&#xB987;</p><ul><li>&#xB2E8;&#xC21C;&#xD788; <code>.</code>&#xC744; &#xC904;&#xC774;&#xAE30; &#xC704;&#xD574; &#xC62C;&#xB9B0; &#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;&#xB294; &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;,&#xC5D4;&#xD14C;&#xD2F0; &#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;&#xB97C; &#xC218;&#xC815;&#xD558;&#xACE0; &#xADF8; &#xB2E4;&#xC74C; &#xC5D4;&#xD2F0;&#xD2F0;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xACF3;&#xC744; &#xC218;&#xC815;&#xD574;&#xC57C;&#xD558;&#xB294; &#xC218;&#xC815;&#xC758; &#xC5F0;&#xC1C4;&#xB97C; &#xD53C;&#xD560; &#xC218; &#xC5C6;&#xB2E4;.
+</li>
+<li>&#xACB0;&#xB860;&#xC740; &#xADF8;&#xB54C;&#xADF8;&#xB54C; &#xB2E4;&#xB974;&#xAC8C; <code>&#xD604;&#xC2E4;&#xC138;&#xACC4;&#xC758; &#xBB18;&#xC0AC;</code>&#xB97C; &#xC801;&#xC6A9; &#xC5EC;&#xBD80; &#xAE30;&#xC900;&#xC73C;&#xB85C; &#xC0BC;&#xC544;&#xBCF4;&#xC790;
+</li></ul>
+</li></ul>
+<h2 id="&#xD30C;&#xB808;&#xD1A0;-&#xBC95;&#xCE59;pareto-principle">&#xD30C;&#xB808;&#xD1A0; &#xBC95;&#xCE59;(Pareto principle)</h2><ul><li><p>80 &#xB300; 20 &#xBC95;&#xCE59;, &#xC804;&#xCCB4; &#xACB0;&#xACFC;&#xC758; 80%&#xAC00; &#xC804;&#xCCB4; &#xC6D0;&#xC778;&#xC758; 20%&#xC5D0;&#xC11C; &#xC77C;&#xC5B4;&#xB098;&#xB294; &#xD604;&#xC0C1;</p></li>
+<li><p>&#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4; &#xAC1C;&#xBC1C; 80%&#xB97C; 20%&#xC758; &#xAE30;&#xB2A5;&#xC744; &#xAC1C;&#xBC1C;&#xD558;&#xB294;&#xB370; &#xC18C;&#xBE44;&#xD55C;&#xB2E4;. &#xD504;&#xB85C;&#xADF8;&#xB7A8; &#xC0AC;&#xC6A9;&#xC790;&#xC758; 20%&#xAC00; 80%&#xC758; &#xBD80;&#xD558;&#xB97C; &#xBC1C;&#xC0DD;&#xC2DC;&#xD0A8;&#xB2E4; &#xB4F1;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xC774; &#xB41C;&#xB2E4;. &#xD504;&#xB85C;&#xC81D;&#xD2B8; &#xC124;&#xACC4;&#xD560; &#xB54C; &#xC774; &#xBC95;&#xCE59;&#xC744; &#xAC10;&#xC548;&#xD574;&#xC11C; &#xC124;&#xACC4;&#xD558;&#xBA74; &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xB97C; &#xC704;&#xD5D8;&#xC5D0; &#xBE60;&#xD2B8;&#xB9AC;&#xAC8C; &#xD558;&#xB294; &#xC704;&#xD5D8;&#xC694;&#xC18C;&#xB4E4;&#xC744; &#xC0AC;&#xC804;&#xC5D0; &#xD30C;&#xC545;&#xD558;&#xACE0; &#xAD00;&#xB9AC;&#xAC00; &#xAC00;&#xB2A5;&#xD560; &#xAC83;&#xC774;&#xB2E4;.</p></li>
+<li><p>&#xC608;&#xB97C; &#xB4E4;&#xC5B4;&#xC11C; &#xC911;&#xC694;&#xD55C; &#xAE30;&#xB2A5;&#xC744; &#xBA3C;&#xC800; &#xAD6C;&#xD604;&#xD558;&#xB358;&#xC9C0; &#xD2B9;&#xC815; &#xC0AC;&#xC6A9;&#xC790;&#xB4E4;&#xC5D0;&#xAC8C;&#xC11C; &#xC9D1;&#xC911;&#xC801;&#xC73C;&#xB85C; &#xC790;&#xC6D0;&#xC774; &#xC18C;&#xBAA8;&#xB418;&#xB294; &#xAC83;&#xC744; &#xAC10;&#xC548;&#xD574;&#xC11C; &#xC124;&#xACC4;&#xD558;&#xACE0; &#xD14C;&#xC2A4;&#xD305;&#xD55C;&#xB2E4;.</p></li></ul>
+<h2 id="&#xCF58;&#xC6E8;&#xC774;-&#xBC95;&#xCE59;conways-law">&#xCF58;&#xC6E8;&#xC774; &#xBC95;&#xCE59;(Conway&apos;s Law)</h2><ul><li><em>&#x201C;&#xBAA8;&#xB4E0; &#xC2DC;&#xC2A4;&#xD15C;&#xC740; &#xADF8; &#xC870;&#xC9C1;&#xC758; &#xC758;&#xC0AC;&#xC18C;&#xD1B5; &#xAD6C;&#xC870;&#xC640; &#xB3D9;&#xC77C;&#xD558;&#xAC8C; &#xB9CC;&#xB4E4;&#xC5B4;&#xC9C4;&#xB2E4;.&#x201D;</em> 
+</li>
+<li>&#xCF54;&#xB4DC; &#xAD6C;&#xC870;&#xB294; &#xAC1C;&#xBC1C;&#xD300;&#xC758; &#xAD6C;&#xC870;&#xB97C; &#xB530;&#xB77C;&#xAC04;&#xB2E4;&#xB294; &#xBC95;&#xCE59;
+</li>
+<li>&#xC608;&#xB97C; &#xB4E4;&#xBA74;, &#xCEF4;&#xD30C;&#xC77C;&#xB7EC;&#xB97C; &#xB124;&#xAC1C;&#xC758; &#xADF8;&#xB8F9;&#xC5D0;&#xC11C; &#xB9CC;&#xB4E0;&#xB2E4;&#xBA74; &#xCEF4;&#xD30C;&#xC77C;&#xB7EC;&#xB294; &#xB124; &#xB2E8;&#xACC4;&#xB85C; &#xAD6C;&#xC131;&#xB41C;&#xB2E4;. &#xC774;&#xAC83;&#xC740; &#xC5B4;&#xB5BB;&#xAC8C; &#xBCF4;&#xBA74; &#xB2F9;&#xC5F0;&#xD55C; &#xACB0;&#xACFC;&#xC778;&#xB370;, &#xD300;&#xC758; &#xAD6C;&#xC870;&#xB2E4; &#xB2E4;&#xB974;&#xBA74; &#xCF64;&#xD3EC;&#xB10C;&#xD2B8;&#xB85C; &#xBD84;&#xB9AC;&#xB418;&#xC11C; &#xC11C;&#xB85C; &#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;&#xB85C; &#xC5F0;&#xACC4;&#xAC00; &#xB41C;&#xB2E4;. &#xC774;&#xAC83;&#xC5D0;&#xB294; &#xC7A5;&#xB2E8;&#xC810;&#xC774; &#xC874;&#xC7AC;&#xD558;&#xAC8C; &#xB418;&#xB294;&#xB370; &#xC801;&#xC808;&#xD55C; &#xC218;&#xC900;&#xC5D0;&#xC11C; &#xAD6C;&#xC870;&#xB97C; &#xC815;&#xB9AC;&#xD558;&#xACE0; &#xD300;&#xC774; &#xBD84;&#xB9AC;&#xB418;&#xC5B4; &#xC788;&#xB354;&#xB77C;&#xB3C4; &#xD1B5;&#xD569;&#xC774; &#xD544;&#xC694;&#xD55C; &#xAC83;&#xC740; &#xD1B5;&#xD569;&#xC744; &#xD574;&#xC11C; &#xC801;&#xC815;&#xC218;&#xC900;&#xC73C;&#xB85C; &#xCF54;&#xB4DC;&#xAD6C;&#xC870;&#xB97C; &#xAD00;&#xB9AC;&#xD574;&#xC57C;&#xD55C;&#xB2E4;.
+</li>
+<li>&#xC774; &#xBC95;&#xCE59;&#xC774; &#xC8FC;&#xC7A5;&#xD558;&#xB294;&#xAC83;&#xC740; <code>&#xC791;&#xC5C5;&#xC758; &#xD6A8;&#xC6B8;&#xC131;</code>&#xC744; &#xB192;&#xC774;&#xAE30; &#xC704;&#xD574;&#xC11C;&#xB294; <code>&#xC720;&#xC5F0;&#xD55C; &#xC870;&#xC9C1;&#xAD6C;&#xC870;</code>&#xAC00; &#xD544;&#xC694;&#xD558;&#xB2E4;&#xB294; &#xAC83;&#xC774;&#xB2E4;. 
+</li></ul>
+<hr><p>[&#xCD9C;&#xCC98;]</p><p><a href="https://www.slideshare.net/SangminLim/ss-63457159" target="_blank">https://www.slideshare.net/SangminLim/ss-63457159</a></p><p><a href="https://hongjinhyeon.tistory.com/138" target="_blank">https://hongjinhyeon.tistory.com/138</a> [&#xC0DD;&#xAC01;&#xB300;&#xB85C; &#xC0B4;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; &#xC0AC;&#xB294;&#xB300;&#xB85C; &#xC0DD;&#xAC01;&#xD55C;&#xB2E4;.]</p>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Chocolatey.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Chocolatey">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"프로그래밍 관련 원칙","level":"6.1","depth":1,"previous":{"title":"Chocolatey","level":"2.3","depth":1,"path":"etc/Chocolatey.md","ref":"etc/Chocolatey.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"etc/programming-3-law.md","mtime":"2019-11-18T14:44:56.557Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2019-11-18T14:46:30.850Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
