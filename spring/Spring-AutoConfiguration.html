@@ -1,0 +1,472 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>AutoConfiguration 설정과 원리 · GitBook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../etc/programming-3-law.html" />
+    
+    
+    <link rel="prev" href="../etc/Chocolatey.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">윈도우에서 개발환경 구성하기</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../docker/docker-on-windows10.html">
+            
+                <a href="../docker/docker-on-windows10.html">
+            
+                    
+                    윈도우10에서 도커설치하기
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../gitbook/gitbook-on-docker.html">
+            
+                <a href="../gitbook/gitbook-on-docker.html">
+            
+                    
+                    도커로 GitBook 구성하기
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../etc/Chocolatey.html">
+            
+                <a href="../etc/Chocolatey.html">
+            
+                    
+                    Chocolatey
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Java</li>
+        
+        
+    
+
+    
+        
+        <li class="header">Spring</li>
+        
+        
+    
+        <li class="chapter active" data-level="4.1" data-path="Spring-AutoConfiguration.html">
+            
+                <a href="Spring-AutoConfiguration.html">
+            
+                    
+                    AutoConfiguration 설정과 원리
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">ElasticSearch</li>
+        
+        
+    
+
+    
+        
+        <li class="header">etc</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../etc/programming-3-law.html">
+            
+                <a href="../etc/programming-3-law.html">
+            
+                    
+                    프로그래밍 관련 원칙
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >AutoConfiguration 설정과 원리</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="autoconfiguration-&#xC124;&#xC815;&#xACFC;-&#xC6D0;&#xB9AC;">AutoConfiguration &#xC124;&#xC815;&#xACFC; &#xC6D0;&#xB9AC;</h1><p>RedisAutoConfiguration&#xB85C; &#xC774;&#xD574;&#xD558;&#xB294; AutoConfiguration</p><pre><code class="lang-java"><span class="hljs-meta">@Configuration</span>(proxyBeanMethods = <span class="hljs-keyword">false</span>)
+<span class="hljs-meta">@ConditionalOnClass</span>(RedisOperations.class)
+<span class="hljs-meta">@EnableConfigurationProperties</span>(RedisProperties.class)
+<span class="hljs-meta">@Import</span>({ LettuceConnectionConfiguration.class, JedisConnectionConfiguration.class })
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RedisAutoConfiguration</span> </span>{
+
+    <span class="hljs-meta">@Bean</span>
+    <span class="hljs-meta">@ConditionalOnMissingBean</span>(name = <span class="hljs-string">&quot;redisTemplate&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> RedisTemplate&lt;Object, Object&gt; <span class="hljs-title">redisTemplate</span><span class="hljs-params">(RedisConnectionFactory redisConnectionFactory)</span>
+            <span class="hljs-keyword">throws</span> UnknownHostException </span>{
+        RedisTemplate&lt;Object, Object&gt; template = <span class="hljs-keyword">new</span> RedisTemplate&lt;&gt;();
+        template.setConnectionFactory(redisConnectionFactory);
+        <span class="hljs-keyword">return</span> template;
+    }
+
+    <span class="hljs-meta">@Bean</span>
+    <span class="hljs-meta">@ConditionalOnMissingBean</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> StringRedisTemplate <span class="hljs-title">stringRedisTemplate</span><span class="hljs-params">(RedisConnectionFactory redisConnectionFactory)</span>
+            <span class="hljs-keyword">throws</span> UnknownHostException </span>{
+        StringRedisTemplate template = <span class="hljs-keyword">new</span> StringRedisTemplate();
+        template.setConnectionFactory(redisConnectionFactory);
+        <span class="hljs-keyword">return</span> template;
+    }
+
+}</code></pre>
+<h3 id="conditionalonmissingbean">@ConditionalOnMissingBean</h3><p>&#xD2B9;&#xC815; &#xBE48;&#xC774; &#xC0AC;&#xC804;&#xC5D0; &#xC0DD;&#xC131;&#xB418;&#xC9C0; &#xC54A;&#xB294; &#xACBD;&#xC6B0; &#xC870;&#xAC74;&#xC774; &#xB9CC;&#xC871;&#xB428;.</p><p>@Bean&#xACFC; &#xD568;&#xAED8; &#xC0AC;&#xC6A9;&#xB41C;&#xB2E4;&#xBA74; &#xC774;&#xBBF8; &#xC0DD;&#xC131;&#xB41C; &#xBE48;&#xC774; &#xC5C6;&#xC744; &#xB54C; &#xD574;&#xB2F9; &#xBE48;&#xC744; &#xC0DD;&#xC131;&#xD55C;&#xB2E4;&#xB294; &#xC758;&#xBBF8;&#xB85C; &#xBCF4;&#xBA74; &#xB41C;&#xB2E4;.</p><p>-&gt; @ConditionalOnMissingBean+@Bean &#xC758; &#xC870;&#xD569;&#xC77C;&#xB54C;</p><p>&#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xD2B9;&#xC815; &#xBE48;&#xC744; &#xC0DD;&#xC131;&#xD558;&#xB3C4;&#xB85D; &#xC124;&#xC815;&#xD574;&#xB1A8;&#xB2E4;&#xBA74;, &#xC77C;&#xBC18;&#xC801;&#xC73C;&#xB85C; AutoConfiguration&#xC758; &#xC0DD;&#xC131; &#xC21C;&#xC11C;&#xAC00; &#xB9C8;&#xC9C0;&#xB9C9;&#xC5D0; &#xC624;&#xB3C4;&#xB85D; AutoConfiguration&#xC774; &#xC798; &#xC9DC;&#xC5EC;&#xC788;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xC6B0;&#xB9AC;&#xAC00; &#xC124;&#xC815;&#xD55C; bean&#xC774; &#xBA3C;&#xC800; &#xC0DD;&#xC131;&#xB418;&#xACE0; &#xD574;&#xB2F9; AutoConfiguration&#xC740; &#xD544;&#xD130;&#xB9C1; &#xB418;&#xC5B4; &#xC911;&#xBCF5;&#xC0DD;&#xC131;&#xB418;&#xB294; &#xC0C1;&#xD669;&#xC744; &#xB9C9;&#xB294;&#xB2E4;.</p><p>&#xBC18;&#xB300;&#xACE0; &#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xD574;&#xB2F9; &#xBE48;&#xC744; &#xC124;&#xC815;&#xD558;&#xC9C0; &#xC54A;&#xC558;&#xB2E4;&#xBA74; AutoConfiguration&#xC5D0;&#xC11C;&#xB294; &#xD574;&#xB2F9; &#xBE48;&#xC744; &#xC790;&#xB3D9;&#xC0DD;&#xC131;&#xD558;&#xAC8C; &#xB41C;&#xB2E4;.</p><h3 id="conditionalonclass">@ConditionalOnClass</h3><p>classPath&#xC5D0; &#xD2B9;&#xC815; &#xD074;&#xB798;&#xC2A4;&#xAC00; &#xC874;&#xC7AC;&#xD560; &#xB54C;&#xB9CC; &#xC870;&#xAC74;&#xC774; &#xB9CC;&#xC871;&#xB41C;&#xB2E4;.</p><p>&#xC791;&#xC5C5;&#xC744; &#xC704;&#xD574; &#xD544;&#xC218;&#xC801;&#xC73C;&#xB85C; &#xD544;&#xC694;&#xD55C; &#xC758;&#xC874;&#xC131;&#xC774; &#xB4F1;&#xB85D;&#xB418;&#xC5B4; &#xC788;&#xB294;&#xC9C0; &#xCCB4;&#xD06C;&#xD560; &#xB54C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB2E4;.</p><p>RedisAutoConfiguration &#xD074;&#xB798;&#xC2A4;&#xC758; &#xACBD;&#xC6B0; RedisOperations &#xD30C;&#xC77C;&#xC774; classPath&#xC5D0; &#xC874;&#xC7AC;&#xD560; &#xB54C; &#xC870;&#xAC74;&#xC774; &#xB9CC;&#xC871;&#xD558;&#xC5EC; RedisAutoConfiguration&#xC774; &#xB3D9;&#xC791;&#xD558;&#xAC8C; &#xB41C;&#xB2E4;</p><h3 id="conditionalonbean">@ConditionalOnBean</h3><p>RedisAutoConfiguration&#xC5D0;&#xB294; &#xD574;&#xB2F9; &#xC5B4;&#xB178;&#xD14C;&#xC774;&#xC158;&#xC774; &#xC0AC;&#xC6A9;&#xB418;&#xC9C0; &#xC54A;&#xC558;&#xC9C0;&#xB9CC; &#xC815;&#xB9AC;&#xD574;&#xBD04;.</p><p>&#xD2B9;&#xC815; &#xBE48;&#xC774; &#xC774;&#xBBF8; &#xC0DD;&#xC131;&#xB418;&#xC5B4; &#xC788;&#xB294; &#xACBD;&#xC6B0;&#xC5D0;&#xB9CC; &#xC870;&#xAC74;&#xC774; &#xB9CC;&#xC871;&#xD55C;&#xB2E4;. &#xC791;&#xC5C5;&#xC744; &#xC704;&#xD574; &#xD544;&#xC218;&#xC801;&#xC73C;&#xB85C; &#xD544;&#xC694;&#xD55C; &#xBE48;&#xC774; &#xBBF8;&#xB9AC; &#xC0DD;&#xC131;&#xB418;&#xC5B4; &#xC788;&#xB294;&#xC9C0; &#xCCB4;&#xD06C;&#xD560; &#xB54C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB2E4;.</p><p>&#xC608;&#xB97C;&#xB4E4;&#xC5B4; JdbcTemplate&#xB97C; &#xC0DD;&#xC131;&#xD558;&#xAE30; &#xC704;&#xD574; DataSource&#xAC00; &#xD544;&#xC694;&#xD558;&#xB2E4;.</p><pre><code class="lang-java"><span class="hljs-meta">@Bean</span> 
+<span class="hljs-meta">@ConditionalOnBean</span>(name={<span class="hljs-string">&quot;dataSource&quot;</span>}) 
+<span class="hljs-function"><span class="hljs-keyword">public</span> JdbcTemplate <span class="hljs-title">jdbcTemplate</span><span class="hljs-params">(DataSource dataSource)</span> </span>{
+  <span class="hljs-function">returnnew <span class="hljs-title">JdbcTemplate</span><span class="hljs-params">(dataSource)</span></span>; 
+}</code></pre>
+<p>dataSource&#xB77C;&#xACE0; &#xC815;&#xC758;&#xB41C; &#xBE48;&#xC774; &#xC874;&#xC7AC;&#xD560; &#xB54C;&#xB9CC; JdbcTemplate &#xBE48;&#xC744; &#xC0DD;&#xC131;&#xD55C;&#xB2E4;. &#xB9CC;&#xC57D;&#xC5D0; dataSource&#xAC00; &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;&#xBA74; JdbcTemplate&#xC744; &#xB9CC;&#xB4E4; &#xC218;&#xB3C4; &#xC5C6;&#xC744; &#xBFD0;&#xB354;&#xB7EC; &#xB9CC;&#xB4E4; &#xD544;&#xC694;&#xAC00; &#xC5C6;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; AutoConfiguration&#xACFC;&#xC815;&#xC5D0;&#xC11C; JdbcTemplate&#xC744; &#xBE48;&#xC73C;&#xB85C; &#xC0DD;&#xC131;&#xD558;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</p><h3 id="enableconfigurationproperties">@EnableConfigurationProperties</h3><p>RedisProperties&#xB97C; &#xC774;&#xC6A9;&#xD574;&#xC11C; &#xAD00;&#xB828; &#xD504;&#xB85C;&#xD37C;&#xD2F0; &#xC815;&#xBCF4;&#xB97C; &#xC77D;&#xC5B4;&#xC628;&#xB2E4;.</p><h3 id="configurationproxybeanmethods--false">@Configuration(proxyBeanMethods = false)</h3><ul><li>lite mode &#xC801;&#xC6A9; &#xC5EC;&#xBD80; (false: lite mode &#xC801;&#xC6A9;,cglib &#xC0AC;&#xC6A9;&#xD558;&#xC9C0; &#xC54A;&#xB294; &#xC0C1;&#xD0DC;&#xC5D0;&#xC11C; &#xC124;&#xC815;&#xC774; &#xC9C4;&#xD589;&#xB428;)
+</li>
+<li>lite mode&#xB780;? : <a href="http://wonwoo.ml/index.php/post/2000" target="_blank">http://wonwoo.ml/index.php/post/2000</a>
+</li></ul>
+<h3 id="import">@Import</h3><p>&#xC124;&#xC815; &#xC0C1;&#xC18D;(?) &#xC5B4;&#xB178;&#xD14C;&#xC774;&#xC158;</p><p>&#xC0C1;&#xC18D;(extends)&#xC744; &#xC0AC;&#xC6A9;&#xD574;&#xB3C4; &#xB418;&#xC9C0;&#xB9CC; &#xB2E4;&#xC911; &#xC0C1;&#xC18D;&#xC774; &#xBD88;&#xAC00;&#xB2A5;&#xD560; &#xBFD0;&#xB9CC; &#xC544;&#xB2C8;&#xB77C;</p><p>&#xC124;&#xC815; &#xC815;&#xBCF4; &#xC911;&#xC5D0; &#xC624;&#xBC84;&#xB77C;&#xC774;&#xB4DC; &#xD558;&#xBA74; &#xC548;&#xB418;&#xB294; &#xC815;&#xBCF4;&#xB3C4; &#xC788;&#xC5B4; final&#xC744; &#xBA54;&#xC11C;&#xB4DC;&#xC5D0; &#xBD99;&#xC774;&#xBA74; &#xC5D0;&#xB7EC;&#xAC00; &#xB09C;&#xB2E4;&#xACE0; &#xD55C;&#xB2E4;.</p><p>RedisAutoConfiguration &#xD074;&#xB798;&#xC2A4;&#xB294; LettuceConnectionConfiguration&#xC640; JedisConnectionConfiguration &#xC124;&#xC815;&#xC815;&#xBCF4;&#xB97C; &#xC0C1;&#xC18D;&#xBC1B;&#xB294;&#xB2E4;&#xACE0; &#xD560; &#xC218; &#xC788;&#xB2E4;.</p><h2 id="lettuceconnectionconfigurationjava">LettuceConnectionConfiguration.java</h2><pre><code class="lang-java"><span class="hljs-meta">@Configuration</span>(proxyBeanMethods = <span class="hljs-keyword">false</span>)
+<span class="hljs-meta">@ConditionalOnClass</span>(RedisClient.class)
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LettuceConnectionConfiguration</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">RedisConnectionConfiguration</span> </span>{
+
+    LettuceConnectionConfiguration(RedisProperties properties,
+            ObjectProvider&lt;RedisSentinelConfiguration&gt; sentinelConfigurationProvider,
+            ObjectProvider&lt;RedisClusterConfiguration&gt; clusterConfigurationProvider) {
+        <span class="hljs-keyword">super</span>(properties, sentinelConfigurationProvider, clusterConfigurationProvider);
+    }
+
+    <span class="hljs-meta">@Bean</span>(destroyMethod = <span class="hljs-string">&quot;shutdown&quot;</span>)
+    <span class="hljs-meta">@ConditionalOnMissingBean</span>(ClientResources.class)
+    <span class="hljs-function">DefaultClientResources <span class="hljs-title">lettuceClientResources</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> DefaultClientResources.create();
+    }
+
+    <span class="hljs-meta">@Bean</span>
+    <span class="hljs-meta">@ConditionalOnMissingBean</span>(RedisConnectionFactory.class)
+    <span class="hljs-function">LettuceConnectionFactory <span class="hljs-title">redisConnectionFactory</span><span class="hljs-params">(
+            ObjectProvider&lt;LettuceClientConfigurationBuilderCustomizer&gt; builderCustomizers,
+            ClientResources clientResources)</span> <span class="hljs-keyword">throws</span> UnknownHostException </span>{
+        LettuceClientConfiguration clientConfig = getLettuceClientConfiguration(builderCustomizers, clientResources,
+                getProperties().getLettuce().getPool());
+        <span class="hljs-keyword">return</span> createLettuceConnectionFactory(clientConfig);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> LettuceConnectionFactory <span class="hljs-title">createLettuceConnectionFactory</span><span class="hljs-params">(LettuceClientConfiguration clientConfiguration)</span> </span>{
+        <span class="hljs-keyword">if</span> (getSentinelConfig() != <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> LettuceConnectionFactory(getSentinelConfig(), clientConfiguration);
+        }
+        <span class="hljs-keyword">if</span> (getClusterConfiguration() != <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> LettuceConnectionFactory(getClusterConfiguration(), clientConfiguration);
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> LettuceConnectionFactory(getStandaloneConfig(), clientConfiguration);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> LettuceClientConfiguration <span class="hljs-title">getLettuceClientConfiguration</span><span class="hljs-params">(
+            ObjectProvider&lt;LettuceClientConfigurationBuilderCustomizer&gt; builderCustomizers,
+            ClientResources clientResources, Pool pool)</span> </span>{
+        LettuceClientConfigurationBuilder builder = createBuilder(pool);
+        applyProperties(builder);
+        <span class="hljs-keyword">if</span> (StringUtils.hasText(getProperties().getUrl())) {
+            customizeConfigurationFromUrl(builder);
+        }
+        builder.clientResources(clientResources);
+        builderCustomizers.orderedStream().forEach((customizer) -&gt; customizer.customize(builder));
+        <span class="hljs-keyword">return</span> builder.build();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> LettuceClientConfigurationBuilder <span class="hljs-title">createBuilder</span><span class="hljs-params">(Pool pool)</span> </span>{
+        <span class="hljs-keyword">if</span> (pool == <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">return</span> LettuceClientConfiguration.builder();
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> PoolBuilderFactory().createBuilder(pool);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> LettuceClientConfigurationBuilder <span class="hljs-title">applyProperties</span><span class="hljs-params">(
+            LettuceClientConfiguration.LettuceClientConfigurationBuilder builder)</span> </span>{
+        <span class="hljs-keyword">if</span> (getProperties().isSsl()) {
+            builder.useSsl();
+        }
+        <span class="hljs-keyword">if</span> (getProperties().getTimeout() != <span class="hljs-keyword">null</span>) {
+            builder.commandTimeout(getProperties().getTimeout());
+        }
+        <span class="hljs-keyword">if</span> (getProperties().getLettuce() != <span class="hljs-keyword">null</span>) {
+            RedisProperties.Lettuce lettuce = getProperties().getLettuce();
+            <span class="hljs-keyword">if</span> (lettuce.getShutdownTimeout() != <span class="hljs-keyword">null</span> &amp;&amp; !lettuce.getShutdownTimeout().isZero()) {
+                builder.shutdownTimeout(getProperties().getLettuce().getShutdownTimeout());
+            }
+        }
+        <span class="hljs-keyword">if</span> (StringUtils.hasText(getProperties().getClientName())) {
+            builder.clientName(getProperties().getClientName());
+        }
+        <span class="hljs-keyword">return</span> builder;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">customizeConfigurationFromUrl</span><span class="hljs-params">(LettuceClientConfiguration.LettuceClientConfigurationBuilder builder)</span> </span>{
+        ConnectionInfo connectionInfo = parseUrl(getProperties().getUrl());
+        <span class="hljs-keyword">if</span> (connectionInfo.isUseSsl()) {
+            builder.useSsl();
+        }
+    }
+
+    <span class="hljs-comment">/**
+     * Inner class to allow optional commons-pool2 dependency.
+     */</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PoolBuilderFactory</span> </span>{
+
+        <span class="hljs-function">LettuceClientConfigurationBuilder <span class="hljs-title">createBuilder</span><span class="hljs-params">(Pool properties)</span> </span>{
+            <span class="hljs-keyword">return</span> LettucePoolingClientConfiguration.builder().poolConfig(getPoolConfig(properties));
+        }
+
+        <span class="hljs-keyword">private</span> GenericObjectPoolConfig&lt;?&gt; getPoolConfig(Pool properties) {
+            GenericObjectPoolConfig&lt;?&gt; config = <span class="hljs-keyword">new</span> GenericObjectPoolConfig&lt;&gt;();
+            config.setMaxTotal(properties.getMaxActive());
+            config.setMaxIdle(properties.getMaxIdle());
+            config.setMinIdle(properties.getMinIdle());
+            <span class="hljs-keyword">if</span> (properties.getTimeBetweenEvictionRuns() != <span class="hljs-keyword">null</span>) {
+                config.setTimeBetweenEvictionRunsMillis(properties.getTimeBetweenEvictionRuns().toMillis());
+            }
+            <span class="hljs-keyword">if</span> (properties.getMaxWait() != <span class="hljs-keyword">null</span>) {
+                config.setMaxWaitMillis(properties.getMaxWait().toMillis());
+            }
+            <span class="hljs-keyword">return</span> config;
+        }
+
+    }
+
+}</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../etc/Chocolatey.html" class="navigation navigation-prev " aria-label="Previous page: Chocolatey">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../etc/programming-3-law.html" class="navigation navigation-next " aria-label="Next page: 프로그래밍 관련 원칙">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"AutoConfiguration 설정과 원리","level":"4.1","depth":1,"next":{"title":"프로그래밍 관련 원칙","level":"6.1","depth":1,"path":"etc/programming-3-law.md","ref":"etc/programming-3-law.md","articles":[]},"previous":{"title":"Chocolatey","level":"2.3","depth":1,"path":"etc/Chocolatey.md","ref":"etc/Chocolatey.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"spring/Spring-AutoConfiguration.md","mtime":"2019-11-19T14:00:01.891Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2019-11-19T14:00:59.648Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
