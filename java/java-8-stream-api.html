@@ -1,0 +1,401 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Java 8 Stream API · GitBook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../spring/Spring-AutoConfiguration.html" />
+    
+    
+    <link rel="prev" href="../etc/Chocolatey.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">윈도우에서 개발환경 구성하기</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../docker/docker-on-windows10.html">
+            
+                <a href="../docker/docker-on-windows10.html">
+            
+                    
+                    윈도우10에서 도커설치하기
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../gitbook/gitbook-on-docker.html">
+            
+                <a href="../gitbook/gitbook-on-docker.html">
+            
+                    
+                    도커로 GitBook 구성하기
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../etc/Chocolatey.html">
+            
+                <a href="../etc/Chocolatey.html">
+            
+                    
+                    Chocolatey
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Java</li>
+        
+        
+    
+        <li class="chapter active" data-level="3.1" data-path="java-8-stream-api.html">
+            
+                <a href="java-8-stream-api.html">
+            
+                    
+                    Java 8 Stream API
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Spring</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../spring/Spring-AutoConfiguration.html">
+            
+                <a href="../spring/Spring-AutoConfiguration.html">
+            
+                    
+                    AutoConfiguration 설정과 원리
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">ElasticSearch</li>
+        
+        
+    
+
+    
+        
+        <li class="header">etc</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../etc/programming-3-law.html">
+            
+                <a href="../etc/programming-3-law.html">
+            
+                    
+                    프로그래밍 관련 원칙
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../docker/github-packages-for-docker.html">
+            
+                <a href="../docker/github-packages-for-docker.html">
+            
+                    
+                    GitHub Packages Registry For Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Java 8 Stream API</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="java-8-stream-api">JAVA 8 Stream API</h1><h3 id="&#xC2A4;&#xD2B8;&#xB9BC;&#xACFC;-&#xCEEC;&#xB809;&#xC158;&#xC758;-&#xCC28;&#xC774;">&#xC2A4;&#xD2B8;&#xB9BC;&#xACFC; &#xCEEC;&#xB809;&#xC158;&#xC758; &#xCC28;&#xC774;</h3><ol><li><p>&#xC2A4;&#xD2B8;&#xB9BC;&#xC740; &#xC694;&#xC18C;&#xB4E4;&#xC744; &#xBCF4;&#xAD00;&#xD558;&#xC9C0;&#xC54A;&#xC74C;. &#xC694;&#xC18C;&#xB4E4;&#xC740; &#xD558;&#xBD80;&#xC758; &#xCEEC;&#xB809;&#xC158;&#xC5D0; &#xBCF4;&#xAD00;&#xB418;&#xAC70;&#xB098; &#xD544;&#xC694;&#xD560; &#xB54C; &#xC0DD;&#xC131;&#xB41C;&#xB2E4;.</p></li>
+<li><p>&#xC2A4;&#xD2B8;&#xB9BC; &#xC5F0;&#xC0B0;&#xC740; &#xC6D0;&#xBCF8;&#xC744; &#xBCC0;&#xACBD;&#xD558;&#xC9C0;&#xC54A;&#xB294;&#xB2E4;. &#xB300;&#xC2E0; &#xACB0;&#xACFC;&#xB97C; &#xB2F4;&#xC740; &#xC0C8;&#xB85C;&#xC6B4; &#xC2A4;&#xD2B8;&#xB9BC;&#xC744; &#xBC18;&#xD658;&#xD55C;&#xB2E4;.</p></li>
+<li><p>&#xC2A4;&#xD2B8;&#xB9BC; &#xC5F0;&#xC0B0;&#xC740; &#xAC00;&#xB2A5;&#xD558;&#xBA74; &#xC9C0;&#xC5F0; &#xCC98;&#xB9AC;&#xB41C;&#xB2E4;.</p><p><code>&#xC9C0;&#xC5F0;&#xCC98;&#xB9AC;</code>&#xB780; &#xACB0;&#xACFC;&#xAC00; &#xD544;&#xC694;&#xD558;&#xAE30; &#xC804;&#xC5D0;&#xB294; &#xC2E4;&#xD589;&#xB418;&#xC9C0;&#xC54A;&#xC74C;&#xC744; &#xC758;&#xBBF8;&#xD55C;&#xB2E4;.</p></li></ol>
+<h3 id="&#xBCD1;&#xB82C;&#xD654;">&#xBCD1;&#xB82C;&#xD654;</h3><p><code>stream</code>&#xC744; <code>parallenStream</code>&#xC73C;&#xB85C; &#xBCC0;&#xACBD;&#xD558;&#xB294; &#xAC83;&#xB9CC;&#xC73C;&#xB85C; &#xC2A4;&#xD2B8;&#xB9BC; &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xAC00; &#xD544;&#xD130;&#xB9C1;&#xACFC; &#xCE74;&#xC6B4;&#xD305;&#xC744; &#xBCD1;&#xB82C;&#xB85C; &#xC218;&#xD589; &#xD560; &#xC218; &#xC774;&#xB2E4;.</p><pre><code class="lang-java"><span class="hljs-keyword">long</span> count = words.stream().filter(w -&gt; w.length() &gt; <span class="hljs-number">12</span>).count();
+<span class="hljs-keyword">long</span> count = words.parallelStream().filter(w -&gt; w.length() &gt; <span class="hljs-number">12</span>).count();</code></pre>
+<p>parallenStream &#xBAA9;&#xC801;&#xC740;..?</p><h3 id="stream-api-3&#xB2E8;&#xACC4;">Stream API 3&#xB2E8;&#xACC4;</h3><ol><li><p>&#xC2A4;&#xD2B8;&#xB9BC; &#xC0DD;&#xC131;</p></li>
+<li><p>&#xCD08;&#xAE30; &#xC2A4;&#xD2B8;&#xB9BC;&#xC744; &#xB2E4;&#xB978; &#xC2A4;&#xD2B8;&#xB9BC;&#xC73C;&#xB85C; &#xBCC0;&#xD658;&#xD558;&#xB294; &#xC911;&#xAC04; &#xC5F0;&#xC0B0;&#xB4E4;</p></li>
+<li><p>&#xACB0;&#xACFC;&#xB97C; &#xC0B0;&#xCD9C;&#xD558;&#xAE30; &#xC704;&#xD55C; &#xCD5C;&#xC885; &#xC5F0;&#xC0B0;</p><p>&#xC774; &#xC5F0;&#xC0B0;&#xC740; &#xC55E;&#xC120; &#xC9C0;&#xC5F0; &#xC5F0;&#xC0B0;&#xB4E4;&#xC758; &#xC2E4;&#xD589;&#xC744; &#xAC15;&#xC81C;&#xD55C;&#xB2E4;. &#xC774;&#xD6C4; &#xD574;&#xB2F9; &#xC2A4;&#xD2B8;&#xB9BC;&#xC740; &#xB354;&#xB294; &#xC0AC;&#xC6A9; &#xD560; &#xC218; &#xC5C6;&#xB2E4;.</p></li></ol>
+<h3 id="flatmap">flatMap()</h3><p>&#xC2A4;&#xD2B8;&#xB9BC;&#xB4E4;&#xC744; &#xD558;&#xB098;&#xC758; &#xC2A4;&#xD2B8;&#xB9BC;&#xC73C;&#xB85C; &#xD569;&#xCCD0;&#xC11C; &#xD558;&#xB098;&#xC758; &#xC0C8;&#xB85C;&#xC6B4; &#xC2A4;&#xD2B8;&#xB9BC;&#xC744; &#xBC18;&#xD658;.</p><pre><code class="lang-java">Stream&lt;Character&gt; flatMapStream = stream.flatMap(w -&gt; characterStream(w));
+
+<span class="hljs-function"><span class="hljs-keyword">private</span> Stream&lt;Character&gt; <span class="hljs-title">characterStream</span><span class="hljs-params">(String s)</span> </span>{
+        List&lt;Character&gt; result = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">char</span> c : s.toCharArray()) {
+            result.add(c);
+        }
+        <span class="hljs-keyword">return</span> result.stream();
+    }</code></pre>
+<h3 id="&#xB9AC;&#xB355;&#xC158;">&#xB9AC;&#xB355;&#xC158;</h3><p>&#xB9AC;&#xB355;&#xC158; &#xBA54;&#xC18C;&#xB4DC;&#xB294; &#xC2A4;&#xD2B8;&#xB9BC;&#xC744; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC5D0; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB294; &#xAC12;&#xC73C;&#xB85C; &#xB9AC;&#xB4C0;&#xC2A4;&#xD55C;&#xB2E4;.</p><p>&#xB9AC;&#xB355;&#xC158;&#xC740; &#xCD5C;&#xC885;&#xC5F0;&#xC0B0;&#xC774;&#xB2E4;.</p><p>&#xC774;&#xB4E4; &#xBA54;&#xC11C;&#xB4DC;&#xB294; &#xC804;&#xCCB4; &#xC2A4;&#xD2B8;&#xB9BC;&#xC744; &#xAC80;&#xC0AC;&#xD558;&#xC9C0;&#xB9CC; &#xC5EC;&#xC804;&#xD788; &#xBCD1;&#xB82C; &#xC2E4;&#xD589;(<code>parallel()</code>)&#xC744; &#xD1B5;&#xD574; &#xC774;&#xC810;&#xC744; &#xC5BB;&#xC744; &#xC218; &#xC788;&#xB2E4;.</p><ol><li>stream.count()
+</li>
+<li>stream.max()
+</li>
+<li>stream.min()
+</li>
+<li>stream.findFirst()
+</li>
+<li>stream.findAny()
+</li>
+<li>stream.anyMath() //&#xC2A4;&#xD2B8;&#xB9BC;&#xC5D0;&#xC11C; &#xC77C;&#xCE58;&#xD558;&#xB294; &#xC694;&#xC18C;&#xAC00; &#xC788;&#xB294;&#xC9C0; &#xC5EC;&#xBD80;&#xB97C; &#xBC18;&#xD658;
+</li></ol>
+<h4 id="&#xB9AC;&#xB355;&#xC158;-&#xC5F0;&#xC0B0;">&#xB9AC;&#xB355;&#xC158; &#xC5F0;&#xC0B0;</h4><h5 id="streamreduce">Stream.reduce()</h5><p>&#xC2A4;&#xD2B8;&#xB9BC;&#xC758; &#xC694;&#xC18C;&#xB4E4;&#xC744; &#xB2E4;&#xB978; &#xBC29;&#xBC95;&#xC73C;&#xB85C; &#xACB0;&#xD569;&#xD558;&#xACE0; &#xC2F6;&#xC740; &#xACBD;&#xC6B0; reduce &#xBA54;&#xC18C;&#xB4DC;&#xB97C; &#xC0AC;&#xC6A9;</p><p>&#xC5EC;&#xB7EC; &#xAC1C;&#xAC00; &#xC788;&#xB294;&#xB370; &#xAC00;&#xC7A5; &#xB2E8;&#xC21C;&#xD55C; &#xD615;&#xD0DC;&#xB294; &#xC774;&#xD56D; &#xD568;&#xC218;&#xB97C; &#xBC1B;&#xC544; &#xCC98;&#xC74C; &#xB450; &#xC694;&#xC18C;&#xBD80;&#xD130; &#xC2DC;&#xC791;&#xD558;&#xC5EC; &#xACC4;&#xC18D;&#xD574;&#xC11C; &#xD574;&#xB2F9; &#xD568;&#xC218;&#xB97C; &#xC801;&#xC6A9;&#xD55C;&#xB2E4;.</p><p>reduce &#xBA54;&#xC11C;&#xB4DC;&#xAC00; &#xB9AC;&#xB355;&#xC158; &#xC5F0;&#xC0B0; op&#xB97C; &#xAC00;&#xC9C0;&#xBA74;, &#xD574;&#xB2F9; &#xB9AC;&#xB355;&#xC158;&#xC740; V0 op V1 op V2 op V3 op &#x2026; &#xB97C; &#xB3CC;&#xB824;&#xC900;&#xB2E4;. &#xC5F0;&#xC0B0; op&#xB294; &#xACB0;&#xD569; &#xBC95;&#xCE59;&#xC744; &#xC9C0;&#xC6D0;&#xD574;&#xC57C; &#xD55C;&#xB2E4;. &#xC989; &#xACB0;&#xD569;&#xD558;&#xB294; &#xC21C;&#xC11C;&#xB294; &#xBB38;&#xC81C;&#xAC00; &#xB418;&#xC9C0; &#xC54A;&#xC544;&#xC57C; &#xD55C;&#xB2E4;.</p><pre><code class="lang-java"><span class="hljs-function">Optional&lt;T&gt; <span class="hljs-title">reduce</span><span class="hljs-params">(BinaryOperator&lt;T&gt; accumulator)</span></span>;
+
+Optional&lt;Integer&gt; sum = stream.reduce((x, y) -&gt; x + y);
+Optional&lt;Integer&gt; sum = stream.reduce(Integer::sum);</code></pre>
+<p>e op x = x&#xC640; &#xAC19;&#xC740; &#xD56D;&#xB4F1;&#xAC12;&#xC774; &#xC874;&#xC7AC;&#xD560; &#xB54C;&#xB294; &#xCCAB;&#xBC88;&#xC9F8; &#xC778;&#xC790;&#xB85C; &#xD56D;&#xB4F1;&#xAC12;&#xC744; &#xB123;&#xC5B4;&#xC904; &#xC218; &#xC788;&#xB2E4;. &#xADF8;&#xB7EC;&#xBA74; &#xBC18;&#xD658; &#xAC12;&#xC73C;&#xB85C; Optional<t>&#xAC00; &#xC544;&#xB2CC; T&#xB97C; &#xBC1B;&#xC744; &#xC218; &#xC788;&#xB2E4;.</t></p><pre><code class="lang-java"><span class="hljs-function">T <span class="hljs-title">reduce</span><span class="hljs-params">(T identity, BinaryOperator&lt;T&gt; accumulator)</span></span>;
+
+<span class="hljs-keyword">int</span> sum = stream.reduce(<span class="hljs-number">0</span>, Integer::sum);
+
+<span class="hljs-comment">//i.e</span>
+<span class="hljs-keyword">int</span> rs= Stream.of(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>).reduce(-<span class="hljs-number">1</span>, Integer::sum);
+<span class="hljs-comment">//output rs=20</span></code></pre>
+<p>&#xC2A4;&#xD2B8;&#xB9BC;&#xC740; &#xBCD1;&#xB82C;&#xD654;&#xAC00; &#xC27D;&#xB2E4;&#xB294; &#xC7A5;&#xC810;&#xC774; &#xC788;&#xB294;&#xB370;, &#xAC12;&#xC774; &#xB204;&#xC801;&#xB418;&#xB294; &#xC5F0;&#xC0B0;&#xC758; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; &#xB300;&#xBD80;&#xBD84; &#xBC14;&#xB85C; &#xBCD1;&#xB82C;&#xD654;&#xB97C; &#xD560; &#xC218; &#xC5C6;&#xB2E4;. &#xC774; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; &#xAC01; &#xBD80;&#xBD84;&#xC758; &#xACB0;&#xACFC;&#xB97C; &#xACB0;&#xD569;&#xD558;&#xB3C4;&#xB85D; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xD568;&#xC218;&#xB97C; 3&#xBC88;&#xC9F8; &#xC778;&#xC790;&#xB85C; &#xB123;&#xC5B4;&#xC8FC;&#xC5B4;&#xC57C; &#xD55C;&#xB2E4;.</p><pre><code class="lang-java">&lt;U&gt; <span class="hljs-function">U <span class="hljs-title">reduce</span><span class="hljs-params">(U identity,
+             BiFunction&lt;U, ? <span class="hljs-keyword">super</span> T, U&gt; accumulator,
+             BinaryOperator&lt;U&gt; combiner)</span></span>;</code></pre>
+<p>&#xC2E4;&#xC804;&#xC5D0;&#xC11C;&#xB294; reduce &#xBA54;&#xC18C;&#xB4DC;&#xB97C; &#xB9CE;&#xC774; &#xC0AC;&#xC6A9;&#xD558;&#xC9C0;&#xC54A;&#xC744; &#xAC83;&#xC774;&#xB2E4;. &#xBCF4;&#xD1B5;&#xC740; &#xC22B;&#xC790; &#xC2A4;&#xD2B8;&#xB9BC;&#xC5D0; &#xB9E4;&#xD551; &#xD55C; &#xD6C4;&#xC5D0; &#xAC01; &#xAC12;&#xC744; &#xACC4;&#xC0B0;&#xD574;&#xC8FC;&#xB294; &#xBA54;&#xC11C;&#xB4DC;&#xB97C; &#xC774;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC774; &#xB354; &#xC27D;&#xB2E4;.</p><h3 id="streamforeach-streamforeachordered">Stream.forEach(), Stream.forEachOrdered()</h3><p>forEach&#xC758; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; &#xBCD1;&#xB82C;&#xC2A4;&#xD2B8;&#xB9BC;&#xC5D0;&#xC11C; &#xC21C;&#xC11C;&#xB97C; &#xBCF4;&#xC7A5;&#xD560; &#xC218; &#xC5C6;&#xB2E4;.</p><p>&#xC2A4;&#xD2B8;&#xB9BC; &#xC21C;&#xC11C;&#xB300;&#xB85C; &#xC870;&#xD68C;&#xD558;&#xACE0; &#xC2F6;&#xC740; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; forEachOrdered&#xB97C; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD55C;&#xB2E4;. &#xD558;&#xC9C0;&#xB9CC; &#xC774;&#xACBD;&#xC6B0;&#xB294; &#xBCD1;&#xB82C;&#xC131;&#xC774; &#xC8FC;&#xB294; &#xB300;&#xBD80;&#xBD84;&#xC758; &#xC774;&#xC810;&#xC744; &#xD3EC;&#xAE30;&#xD574;&#xC57C; &#xD55C;&#xB2E4;.</p><p>&#xCD5C;&#xC885; &#xC5F0;&#xC0B0;&#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xBBC0;&#xB85C; &#xC2A4;&#xD2B8;&#xB9BC;&#xC744; &#xC7AC;&#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xB2E4;. &#xB9CC;&#xC57D; &#xC7AC;&#xC0AC;&#xC6A9;&#xD558;&#xACE0; &#xC2F6;&#xB2E4;&#xBA74; peek &#xBA54;&#xC18C;&#xB4DC;&#xB97C; &#xC0AC;&#xC6A9;&#xD574;&#xC57C;&#xD55C;&#xB2E4;.</p><pre><code class="lang-java">Object[] powers = Stream.iterate(<span class="hljs-number">1</span>.,<span class="hljs-number">0</span>, p -&gt; p * <span class="hljs-number">2</span>)
+    .peek(e -&gt; System.out.println(<span class="hljs-string">&quot;Fetching &quot;</span> + e))
+    .limit(<span class="hljs-number">20</span>).toArray();</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../etc/Chocolatey.html" class="navigation navigation-prev " aria-label="Previous page: Chocolatey">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../spring/Spring-AutoConfiguration.html" class="navigation navigation-next " aria-label="Next page: AutoConfiguration 설정과 원리">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Java 8 Stream API","level":"3.1","depth":1,"next":{"title":"AutoConfiguration 설정과 원리","level":"4.1","depth":1,"path":"spring/Spring-AutoConfiguration.md","ref":"spring/Spring-AutoConfiguration.md","articles":[]},"previous":{"title":"Chocolatey","level":"2.3","depth":1,"path":"etc/Chocolatey.md","ref":"etc/Chocolatey.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"java/java-8-stream-api.md","mtime":"2019-11-27T13:54:37.725Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2019-11-27T14:00:26.325Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
