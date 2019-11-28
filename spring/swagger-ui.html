@@ -1,0 +1,472 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Spring Boot + Swagger 2 · GitBook</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="swagger-aggregation.html" />
+    
+    
+    <link rel="prev" href="Spring-AutoConfiguration.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">윈도우에서 개발환경 구성하기</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../docker/docker-on-windows10.html">
+            
+                <a href="../docker/docker-on-windows10.html">
+            
+                    
+                    윈도우10에서 도커설치하기
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../gitbook/gitbook-on-docker.html">
+            
+                <a href="../gitbook/gitbook-on-docker.html">
+            
+                    
+                    도커로 GitBook 구성하기
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../etc/Chocolatey.html">
+            
+                <a href="../etc/Chocolatey.html">
+            
+                    
+                    Chocolatey
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Java</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../java/java-8-stream-api.html">
+            
+                <a href="../java/java-8-stream-api.html">
+            
+                    
+                    Java 8 Stream API
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Spring</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="Spring-AutoConfiguration.html">
+            
+                <a href="Spring-AutoConfiguration.html">
+            
+                    
+                    AutoConfiguration 설정과 원리
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.2" data-path="swagger-ui.html">
+            
+                <a href="swagger-ui.html">
+            
+                    
+                    Spring Boot + Swagger 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="swagger-aggregation.html">
+            
+                <a href="swagger-aggregation.html">
+            
+                    
+                    Swagger Aggregation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">ElasticSearch</li>
+        
+        
+    
+
+    
+        
+        <li class="header">etc</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../etc/programming-3-law.html">
+            
+                <a href="../etc/programming-3-law.html">
+            
+                    
+                    프로그래밍 관련 원칙
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../docker/github-packages-for-docker.html">
+            
+                <a href="../docker/github-packages-for-docker.html">
+            
+                    
+                    GitHub Packages Registry For Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Spring Boot + Swagger 2</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="spring-swagger-2-guide">Spring Swagger 2 Guide</h1><hr><p>[TOC]</p><hr><h2 id="1-&#xC124;&#xC815;&#xD558;&#xAE30;">1. &#xC124;&#xC815;&#xD558;&#xAE30;</h2><h3 id="1-pomxml">1. pom.xml</h3><pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.springfox<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>springfox-swagger2<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.9.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.springfox<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.9.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
+<ul><li><p>ISSUE : <a href="https://github.com/springfox/springfox/issues/2616#" target="_blank">Failed to start bean &apos;documentationPluginsBootstrapper&apos;</a></p><ul><li>&#xD574;&#xACB0;&#xBC29;&#xBC95; 
+</li></ul>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.google.guava<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>guava<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>20.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">exclusions</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">exclusion</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.google.guava<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>guava<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">exclusion</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">exclusions</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
+</li></ul>
+<h3 id="2-create-swaggerconfigjava">2. create SwaggerConfig.java</h3><ul><li><p><code>.apis()</code>: &#xD574;&#xB2F9; &#xCEE8;&#xD2B8;&#xB864;&#xB7EC;&#xB9CC; &#xBB38;&#xC11C;&#xD654;&#xD558;&#xB3C4;&#xB85D; basePackage&#xC744; <code>kr.datasolution.bigstation</code>&#xB85C; &#xC124;&#xC815;&#xD55C;&#xB2E4;.</p><ul><li><em>any()</em>, <em>none(),</em> <em>regex()</em>, or <em>ant()</em>. &#xB4F1;&#xC73C;&#xB85C; &#xC5EC;&#xB7EC; &#xC124;&#xC815; &#xAC00;&#xB2A5; 
+</li></ul>
+</li></ul>
+<pre><code>[&#xCC38;&#xACE0;]: https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api    &quot;&#xCC38;&#xACE0;&quot;</code></pre>
+<pre><code class="lang-java"><span class="hljs-meta">@Configuration</span>
+<span class="hljs-meta">@EnableSwagger</span>2
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SwaggerConfig</span> </span>{
+    <span class="hljs-meta">@Bean</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Docket <span class="hljs-title">api</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Docket(DocumentationType.SWAGGER_2)
+                .select()
+                .apis(RequestHandlerSelectors.basePackage(<span class="hljs-string">&quot;com.project.toy&quot;</span>))
+                .paths(PathSelectors.any())
+                .build();
+    }
+}</code></pre>
+<h3 id="3-swagger-ui--&#xBD99;&#xC774;&#xAE30;">3. Swagger UI  &#xBD99;&#xC774;&#xAE30;</h3><p>spring boot&#xC758; &#xACBD;&#xC6B0; &#xC790;&#xB3D9;&#xC73C;&#xB85C; configuration&#xC744; &#xD574;&#xC8FC;&#xC9C0;&#xB9CC; swagger ui&#xC758; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; <code>WebMvcConfigurerAdapter</code>&#xB97C; &#xC0C1;&#xC18D;&#xD558;&#xB294; &#xD074;&#xB798;&#xC2A4;&#xB97C; &#xC124;&#xC815;&#xC73C;&#xB85C; &#xB9CC;&#xB4E4;&#xC5B4;&#xC918;&#xC57C;&#xB9CC; &#xD55C;&#xB2E4;.</p><p>&#xB610;&#xD55C; <code>@EnableWebMvc</code> &#xC5B4;&#xB178;&#xD14C;&#xC774;&#xC158;&#xB3C4; &#xC788;&#xC5B4;&#xC57C;&#xD55C;&#xB2E4;.</p><pre><code class="lang-java"><span class="hljs-meta">@Configuration</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MvcConfig</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">WebMvcConfigurer</span> </span>{
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addResourceHandlers</span><span class="hljs-params">(ResourceHandlerRegistry registry)</span> </span>{
+        registry.addResourceHandler(<span class="hljs-string">&quot;/resources/**&quot;</span>)
+                .addResourceLocations(<span class="hljs-string">&quot;/WEB-INF/resources/&quot;</span>);
+
+        registry.addResourceHandler(<span class="hljs-string">&quot;swagger-ui.html&quot;</span>)
+                .addResourceLocations(<span class="hljs-string">&quot;classpath:/META-INF/resources/&quot;</span>);
+
+        registry.addResourceHandler(<span class="hljs-string">&quot;/webjars/**&quot;</span>)
+                .addResourceLocations(<span class="hljs-string">&quot;classpath:/META-INF/resources/webjars/&quot;</span>);
+    }
+}</code></pre>
+<pre><code class="lang-java"><span class="hljs-meta">@EnableWebMvc</span>
+<span class="hljs-meta">@SpringBootApplication</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WorkflowRuleClassifierApiApplication</span></span>{
+
+}</code></pre>
+<h2 id="4-url-&#xC811;&#xC18D;-&#xD655;&#xC778;">4. URL &#xC811;&#xC18D; &#xD655;&#xC778;</h2><pre><code class="lang-http"><span class="hljs-attribute">http://localhost:port/swagger-ui.html</span></code></pre>
+<h2 id="2-&#xBD80;&#xAC00;-&#xC124;&#xBA85;-&#xCD94;&#xAC00;&#xD558;&#xAE30;">2. &#xBD80;&#xAC00; &#xC124;&#xBA85; &#xCD94;&#xAC00;&#xD558;&#xAE30;</h2><h3 id="1-swagger-&#xBA54;&#xC778;&#xD654;&#xBA74;&#xC5D0;-&#xC124;&#xBA85;-&#xCD94;&#xAC00;&#xD558;&#xAE30;">1. swagger &#xBA54;&#xC778;&#xD654;&#xBA74;&#xC5D0; &#xC124;&#xBA85; &#xCD94;&#xAC00;&#xD558;&#xAE30;</h3><pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SwaggerConfig</span> </span>{
+    <span class="hljs-comment">//...</span>
+    <span class="hljs-comment">//ADD</span>
+    <span class="hljs-function"><span class="hljs-keyword">private</span> ApiInfo <span class="hljs-title">apiInfo</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ApiInfo(
+                <span class="hljs-string">&quot;Rule Classifier API&quot;</span>,
+                <span class="hljs-string">&quot;BIGstation v3.1 - rule classifier api &quot;</span>,
+                <span class="hljs-string">&quot;API TOS&quot;</span>,
+                <span class="hljs-string">&quot;Terms of service&quot;</span>,
+                <span class="hljs-keyword">new</span> Contact(<span class="hljs-string">&quot;Bong A Lim&quot;</span>, <span class="hljs-keyword">null</span>, <span class="hljs-string">&quot;bong@datasolution.kr&quot;</span>),
+                <span class="hljs-string">&quot;License of API&quot;</span>,
+                <span class="hljs-string">&quot;API license URL&quot;</span>,
+                Collections.emptyList());
+    }
+}</code></pre>
+<h3 id="2-&#xCEE8;&#xD2B8;&#xB864;&#xB7EC;-&#xC124;&#xBA85;-&#xCD94;&#xAC00;&#xD558;&#xAE30;">2. &#xCEE8;&#xD2B8;&#xB864;&#xB7EC; &#xC124;&#xBA85; &#xCD94;&#xAC00;&#xD558;&#xAE30;</h3><pre><code class="lang-java"><span class="hljs-meta">@Api</span>(value = <span class="hljs-string">&quot;main&quot;</span>, description = <span class="hljs-string">&quot;main controller&quot;</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RuleClassifierController</span> </span>{
+}</code></pre>
+<h3 id="3-&#xAC01;-api&#xB9C8;&#xB2E4;-&#xC124;&#xBA85;-&#xCD94;&#xAC00;&#xD558;&#xAE30;">3. &#xAC01; API&#xB9C8;&#xB2E4; &#xC124;&#xBA85; &#xCD94;&#xAC00;&#xD558;&#xAE30;</h3><pre><code class="lang-java"><span class="hljs-meta">@ApiOperation</span>(value = <span class="hljs-string">&quot;&#xCFFC;&#xB9AC;(&#xAC80;&#xC0C9;) &#xD14C;&#xC2A4;&#xD2B8; API&quot;</span>)
+<span class="hljs-meta">@RequestMapping</span>(value = <span class="hljs-string">&quot;/search&quot;</span>, method = RequestMethod.POST)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Map&lt;String, Object&gt; <span class="hljs-title">search</span><span class="hljs-params">(@RequestBody SearchRequestVo requestVo, User user)</span> <span class="hljs-keyword">throws</span> Exception </span>{
+        <span class="hljs-comment">//...</span>
+        <span class="hljs-keyword">return</span> result;
+    }</code></pre>
+<ul><li><p>&#xB354; &#xC790;&#xC138;&#xD788; &#xC124;&#xC815;&#xB3C4; &#xAC00;&#xB2A5;&#xD558;&#xB2E4;</p><pre><code class="lang-java"> <span class="hljs-meta">@ApiImplicitParams</span>({
+            <span class="hljs-meta">@ApiImplicitParam</span>(name = <span class="hljs-string">&quot;title&quot;</span>, value = <span class="hljs-string">&quot;&#xC81C;&#xBAA9;&quot;</span>, required = <span class="hljs-keyword">true</span>, dataType = <span class="hljs-string">&quot;string&quot;</span>, paramType = <span class="hljs-string">&quot;query&quot;</span>, defaultValue = <span class="hljs-string">&quot;&quot;</span>),
+            <span class="hljs-meta">@ApiImplicitParam</span>(name = <span class="hljs-string">&quot;content&quot;</span>, value = <span class="hljs-string">&quot;&#xB0B4;&#xC6A9;&quot;</span>, required = <span class="hljs-keyword">true</span>, dataType = <span class="hljs-string">&quot;string&quot;</span>, paramType = <span class="hljs-string">&quot;query&quot;</span>, defaultValue = <span class="hljs-string">&quot;&quot;</span>),
+    })</code></pre>
+<ul><li><p>&#xC758;&#xACAC;&#xC744; &#xB367;&#xBD99;&#xC774;&#xC790;&#xBA74;, requestBody&#xC758; &#xACBD;&#xC6B0; &#xB300;&#xBD80;&#xBD84; VO&#xC77C;&#xB54C;&#xAC00; &#xB9CE;&#xC740;&#xB370;, dataType&#xC744; &#xBB50;&#xB85C; &#xC124;&#xC815;&#xD574;&#xC918;&#xC57C;&#xD560;&#xC9C0; &#xBAA8;&#xB974;&#xACA0;&#xB2E4;.</p><p><code>@ApiImplicitParams</code>&#xC124;&#xC815; &#xC548;&#xD558;&#xBA74; &#xC790;&#xB3D9;&#xC73C;&#xB85C; Vo&#xAC1D;&#xCCB4; &#xB9E4;&#xD551;&#xD574;&#xC8FC;&#xB294;&#xB370; <code>@ApiImplicitParams</code>&#xC73C;&#xB85C; Vo &#xAC1D;&#xCCB4; &#xB9E4;&#xD551;&#xC744; &#xC2DC;&#xB3C4;&#xD558;&#xC600;&#xC73C;&#xB098; &#xB9E4;&#xD551; &#xC2E4;&#xD328;&#xD574;&#xC11C; <code>@ApiImplicitParams</code>&#xC124;&#xC815;&#xC744; &#xC548;&#xD574;&#xC8FC;&#xC5C8;&#xB2E4;.</p><p>VO &#xAC1D;&#xCCB4; &#xB9E4;&#xD551; &#xC131;&#xACF5;&#xD558;&#xC2DC;&#xBA74; &#xACF5;&#xC720;&#xBD80;&#xD0C1;&#xB4DC;&#xB9BD;&#xB2C8;&#xB2E4;.</p></li></ul>
+</li></ul>
+<pre><code>[&#xCC38;&#xC870;]: https://yookeun.github.io/java/2017/02/26/java-swagger/</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Spring-AutoConfiguration.html" class="navigation navigation-prev " aria-label="Previous page: AutoConfiguration 설정과 원리">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="swagger-aggregation.html" class="navigation navigation-next " aria-label="Next page: Swagger Aggregation">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Spring Boot + Swagger 2","level":"4.2","depth":1,"next":{"title":"Swagger Aggregation","level":"4.3","depth":1,"path":"spring/swagger-aggregation.md","ref":"spring/swagger-aggregation.md","articles":[]},"previous":{"title":"AutoConfiguration 설정과 원리","level":"4.1","depth":1,"path":"spring/Spring-AutoConfiguration.md","ref":"spring/Spring-AutoConfiguration.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"spring/swagger-ui.md","mtime":"2019-11-28T13:14:20.499Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2019-11-28T13:27:28.630Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
