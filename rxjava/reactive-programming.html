@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="" >
     <head>
-        <title>Chocolatey · GitBook</title>
+        <title>Reactive Programming 정리 · GitBook</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../java/java-8-stream-api.html" />
+    <link rel="next" href="../hdp/ambari-agent-install.html" />
     
     
-    <link rel="prev" href="../gitbook/gitbook-on-docker.html" />
+    <link rel="prev" href="../spring/swagger-aggregation.html" />
     
 
     </head>
@@ -135,9 +135,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.3" data-path="Chocolatey.html">
+        <li class="chapter " data-level="2.3" data-path="../etc/Chocolatey.html">
             
-                <a href="Chocolatey.html">
+                <a href="../etc/Chocolatey.html">
             
                     
                     Chocolatey
@@ -228,9 +228,9 @@
         
         
     
-        <li class="chapter " data-level="6.1" data-path="../rxjava/reactive-programming.html">
+        <li class="chapter active" data-level="6.1" data-path="reactive-programming.html">
             
-                <a href="../rxjava/reactive-programming.html">
+                <a href="reactive-programming.html">
             
                     
                     Reactive Programming 정리
@@ -281,9 +281,9 @@
         
         
     
-        <li class="chapter " data-level="8.1" data-path="programming-3-law.html">
+        <li class="chapter " data-level="8.1" data-path="../etc/programming-3-law.html">
             
-                <a href="programming-3-law.html">
+                <a href="../etc/programming-3-law.html">
             
                     
                     프로그래밍 관련 원칙
@@ -337,7 +337,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Chocolatey</a>
+        <a href=".." >Reactive Programming 정리</a>
     </h1>
 </div>
 
@@ -352,27 +352,8 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="chocolatey">Chocolatey</h1><h2 id="chocolatey&#xB780;">Chocolatey&#xB780;?</h2><blockquote><p>Chocolatey is a software management solution unlike anything else you&apos;ve ever experienced on Windows. Chocolatey brings the concepts of true package management to allow you to version things, manage dependencies and installation order, better inventory management, and other features.</p><p>&#xCD9C;&#xCC98; :  <a href="https://chocolatey.org/" target="_blank">https://chocolatey.org/</a></p></blockquote><p><b>Chocolatey&#xB294; &#xC9C4;&#xC815;&#xD55C; &#xD328;&#xD0A4;&#xC9C0; &#xAD00;&#xB9AC; &#xAC1C;&#xB150;&#xC744; &#xB3C4;&#xC785;&#xD558;&#xC5EC; &#xBC84;&#xC804; &#xAD00;&#xB9AC;, &#xC885;&#xC18D;&#xC131; &#xBC0F; &#xC124;&#xCE58; &#xC21C;&#xC11C; &#xAD00;&#xB9AC;, &#xB354; &#xB098;&#xC740; &#xC7AC;&#xACE0; &#xAD00;&#xB9AC; &#xBC0F; &#xAE30;&#xD0C0; &#xAE30;&#xB2A5;&#xC744; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.</b></p><p>&#xB9AC;&#xB205;&#xC2A4;&#xC758; apt-get,yum &#xADF8;&#xB9AC;&#xACE0; macOS&#xC758; HomeBrew&#xC640; &#xAC19;&#xC740; &#xAC1C;&#xB150;&#xC758; &#xD328;&#xD0A4;&#xC9C0;&#xAD00;&#xB9AC; &#xB3C4;&#xAD6C;</p><p>&#xC708;&#xB3C4;&#xC6B0;&#xC5D0;&#xC11C;&#xB294; Chocolatey&#xB97C; &#xC8FC;&#xB85C; &#xC4F0;&#xB294; &#xB4EF;&#xD558;&#xB2E4;. &#xADF8; &#xC678;&#xC5D0; &#xC708;&#xB3C4;&#xC6B0;&#xC5D0;&#xC11C; &#xC124;&#xCE58;&#xD560;&#xC218; &#xC788;&#xB294; &#xD328;&#xD0A4;&#xC9C0;&#xAD00;&#xB9AC;&#xB3C4;&#xAD6C;&#xB85C; <code>sdkman</code>&#xAC00; &#xC788;&#xB2E4;.</p><h2 id="&#xC124;&#xCE58;-&#xC870;&#xAC74;">&#xC124;&#xCE58; &#xC870;&#xAC74;</h2><ul><li>Windows 7+ / Windows Server 2003+
-</li>
-<li>PowerShell v2+
-</li>
-<li>.NET Framework 4+ (the installation will attempt to install .NET 4.0 if you do not have it installed)
-</li></ul>
-<h2 id="&#xC124;&#xCE58;-&#xBC29;&#xBC95;">&#xC124;&#xCE58; &#xBC29;&#xBC95;</h2><ol><li><p>&#xD30C;&#xC6CC;&#xC140;&#xC744; &#xAD00;&#xB9AC;&#xC790; &#xAD8C;&#xD55C;&#xC73C;&#xB85C; &#xC5F0;&#xB2E4;.</p></li>
-<li><p>&#xC544;&#xB798; &#xBA85;&#xB839;&#xC5B4;&#xB97C; &#xC2E4;&#xD589;</p><pre><code class="lang-powershell"><span class="hljs-built_in">Set-ExecutionPolicy</span> Bypass -Scope <span class="hljs-keyword">Process</span> -Force; iex ((<span class="hljs-built_in">New-Object</span> System.Net.WebClient).DownloadString(<span class="hljs-string">&apos;https://chocolatey.org/install.ps1&apos;</span>))</code></pre>
-<ul><li>&#xC790;&#xC138;&#xD55C; &#xC124;&#xCE58;&#xB294;  <a href="https://chocolatey.org/install" target="_blank">https://chocolatey.org/install</a> &#xB97C; &#xCC38;&#xACE0;.
-</li></ul>
-</li>
-<li><p>&#xC124;&#xCE58; &#xD655;&#xC778;</p><pre><code class="lang-powershell">choco -?     <span class="hljs-comment"># 0.10.15 &#xBC84;&#xC804;&#xC774; &#xB728;&#xBA74; &#xC124;&#xCE58; &#xC644;&#xB8CC;</span></code></pre>
-</li></ol>
-<h2 id="&#xBA85;&#xB839;&#xC5B4;">&#xBA85;&#xB839;&#xC5B4;</h2><p>choco &#xBA85;&#xB839;&#xC5B4; :  <a href="https://chocolatey.org/docs/commands-reference" target="_blank">https://chocolatey.org/docs/commands-reference</a></p><ol><li><p>choco upgrade [package name]  : &#xD328;&#xD0A4;&#xC9C0; &#xC5C5;&#xADF8;&#xB808;&#xC774;&#xB4DC; &#xBA85;&#xB839;&#xC5B4;</p><p>choco upgrade all : &#xC124;&#xCE58;&#xB41C; &#xBAA8;&#xB4E0; &#xD328;&#xD0A4;&#xC9C0; &#xC5C5;&#xADF8;&#xB808;&#xC774;&#xB4DC;</p></li>
-<li><p>choco search [package name] : &#xD328;&#xD0A4;&#xC9C0; &#xAC80;&#xC0C9;</p></li>
-<li><p>choco install [package name] : &#xD328;&#xD0A4;&#xC9C0; &#xC124;&#xCE58;</p><pre><code># &#xC124;&#xCE58; &#xBA85;&#xB839;&#xC5B4;&#xB294; powerShell-&#xAD00;&#xB9AC;&#xC790;&#xBAA8;&#xB4DC; &#xC5D0;&#xC11C;&#xB9CC; &#xC124;&#xCE58;&#xBA85;&#xB839;&#xC5B4;&#xAC00; &#xC62C;&#xBC14;&#xB974;&#xAC8C; &#xC791;&#xB3D9;&#xD55C;&#xB2E4;.
-# --version : &#xC124;&#xCE58;&#xD560; &#xD328;&#xD0A4;&#xC9C0; &#xBC84;&#xC804; &#xBA85;&#xC2DC;
-# -m : &#xBC84;&#xC804; &#xC5EC;&#xB7EC;&#xAC1C; &#xC124;&#xCE58;&#xD558;&#xB294;&#xAC70; &#xD5C8;&#xC6A9; &#xC5EC;&#xBD80; 
-choco install ruby --version 1.9.3.55100 -my</code></pre>
-</li></ol>
-
+                                <h1 id="&#xB9AC;&#xC561;&#xD2F0;&#xBE0C;-&#xD504;&#xB85C;&#xADF8;&#xB798;&#xBC0D;-&#xAE30;&#xBCF8;-&#xAC1C;&#xB150;">&#xB9AC;&#xC561;&#xD2F0;&#xBE0C; &#xD504;&#xB85C;&#xADF8;&#xB798;&#xBC0D; &#xAE30;&#xBCF8; &#xAC1C;&#xB150;</h1><p>&#xCD94;&#xAC00; &#xC815;&#xB9AC; &#xD544;&#xC694;...
+<img alt="rxjava-20191207" src="rxjava-20191207.jpg"></p>
                                 
                                 </section>
                             
@@ -399,12 +380,12 @@ choco install ruby --version 1.9.3.55100 -my</code></pre>
 
             
                 
-                <a href="../gitbook/gitbook-on-docker.html" class="navigation navigation-prev " aria-label="Previous page: 도커로 GitBook 구성하기">
+                <a href="../spring/swagger-aggregation.html" class="navigation navigation-prev " aria-label="Previous page: Swagger Aggregation">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../java/java-8-stream-api.html" class="navigation navigation-next " aria-label="Next page: Java 8 Stream API">
+                <a href="../hdp/ambari-agent-install.html" class="navigation navigation-next " aria-label="Next page: Ambari Agent 설치">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -415,7 +396,7 @@ choco install ruby --version 1.9.3.55100 -my</code></pre>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Chocolatey","level":"2.3","depth":1,"next":{"title":"Java 8 Stream API","level":"3.1","depth":1,"path":"java/java-8-stream-api.md","ref":"java/java-8-stream-api.md","articles":[]},"previous":{"title":"도커로 GitBook 구성하기","level":"2.2","depth":1,"path":"gitbook/gitbook-on-docker.md","ref":"gitbook/gitbook-on-docker.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"etc/Chocolatey.md","mtime":"2019-11-16T16:06:56.537Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2019-12-07T12:36:23.112Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Reactive Programming 정리","level":"6.1","depth":1,"next":{"title":"Ambari Agent 설치","level":"7.1","depth":1,"path":"hdp/ambari-agent-install.md","ref":"hdp/ambari-agent-install.md","articles":[]},"previous":{"title":"Swagger Aggregation","level":"4.3","depth":1,"path":"spring/swagger-aggregation.md","ref":"spring/swagger-aggregation.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"rxjava/reactive-programming.md","mtime":"2019-12-07T12:35:29.367Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2019-12-07T12:36:23.112Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
