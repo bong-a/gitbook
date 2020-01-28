@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="" >
     <head>
-        <title>윈도우10에서 도커설치하기 · GitBook</title>
+        <title>암달의 법칙 · GitBook</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../gitbook/gitbook-on-docker.html" />
     
-    
-    <link rel="prev" href="../" />
+    <link rel="prev" href="../docker/github-packages-for-docker.html" />
     
 
     </head>
@@ -109,9 +107,9 @@
         
         
     
-        <li class="chapter active" data-level="2.1" data-path="docker-on-windows10.html">
+        <li class="chapter " data-level="2.1" data-path="../docker/docker-on-windows10.html">
             
-                <a href="docker-on-windows10.html">
+                <a href="../docker/docker-on-windows10.html">
             
                     
                     윈도우10에서 도커설치하기
@@ -135,9 +133,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3" data-path="../etc/Chocolatey.html">
+        <li class="chapter " data-level="2.3" data-path="Chocolatey.html">
             
-                <a href="../etc/Chocolatey.html">
+                <a href="Chocolatey.html">
             
                     
                     Chocolatey
@@ -320,9 +318,9 @@
         
         
     
-        <li class="chapter " data-level="8.1" data-path="../etc/programming-3-law.html">
+        <li class="chapter " data-level="8.1" data-path="programming-3-law.html">
             
-                <a href="../etc/programming-3-law.html">
+                <a href="programming-3-law.html">
             
                     
                     프로그래밍 관련 원칙
@@ -333,9 +331,9 @@
             
         </li>
     
-        <li class="chapter " data-level="8.2" data-path="github-packages-for-docker.html">
+        <li class="chapter " data-level="8.2" data-path="../docker/github-packages-for-docker.html">
             
-                <a href="github-packages-for-docker.html">
+                <a href="../docker/github-packages-for-docker.html">
             
                     
                     GitHub Packages Registry For Docker
@@ -346,9 +344,9 @@
             
         </li>
     
-        <li class="chapter " data-level="8.3" data-path="../etc/Amdahls-law.html">
+        <li class="chapter active" data-level="8.3" data-path="Amdahls-law.html">
             
-                <a href="../etc/Amdahls-law.html">
+                <a href="Amdahls-law.html">
             
                     
                     암달의 법칙
@@ -389,7 +387,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >윈도우10에서 도커설치하기</a>
+        <a href=".." >암달의 법칙</a>
     </h1>
 </div>
 
@@ -404,31 +402,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="docker-for-windows-10-pro">Docker For Windows 10 Pro</h1><h2 id="&#xC124;&#xCE58;">&#xC124;&#xCE58;</h2><h2 id="running-in-kitematic">Running In Kitematic</h2><h3 id="&#xC124;&#xCE58;">&#xC124;&#xCE58;</h3><h3 id="&#xD65C;&#xC6A9;-&#xBC29;&#xBC95;">&#xD65C;&#xC6A9; &#xBC29;&#xBC95;</h3><h2 id="running-in-git-bashmingw64">Running In Git Bash(MINGW64)</h2><h2 id="&#xC124;&#xCE58;">&#xC124;&#xCE58;</h2><p>git &#xC124;&#xCE58;&#xD560;&#xB54C; git bash &#xB3C4; &#xAC19;&#xC774; &#xC124;&#xCE58;</p><p>git bash&#xB97C; &#xC2E4;&#xD589;&#xD558;&#xBA74; &#xB9AC;&#xB205;&#xC2A4; &#xBA85;&#xB839;&#xC5B4;&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC74C;.</p><h3 id="docker&#xB85C;-jekyll-&#xC2E4;&#xD589;&#xD558;&#xAE30;">Docker&#xB85C; Jekyll &#xC2E4;&#xD589;&#xD558;&#xAE30;</h3><pre><code class="lang-bash">winpty docker run -v <span class="hljs-string">&quot;/<span class="hljs-variable">$PWD</span>&quot;</span>:/srv/jekyll -p 4000:4000 --rm --name jekyll -it jekyll/jekyll jekyll serve --trace</code></pre>
-<h3 id="&#xC774;&#xC288;1">&#xC774;&#xC288;1</h3><pre><code>the input device is not a TTY.  If you are using mintty, try prefixing the command with &apos;winpty&apos;</code></pre>
-<ul><li><p>&#xD574;&#xACB0;&#xBC29;&#xBC95;</p><p>&#xB9E8;&#xC55E; &#xBA85;&#xB839;&#xC5B4; &#xC55E;&#xC5D0; <code>winpty</code>&#xB97C; &#xB123;&#xB294;&#xB2E4;</p><pre><code class="lang-bash">winpty docker run -v ~</code></pre>
-<ul><li>&#xB9E4;&#xBC88; <code>winpty</code> &#xC785;&#xB825;&#xD558;&#xAE30; &#xADC0;&#xCC2E;&#xC73C;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; alias &#xCD94;&#xAC00;
-</li></ul>
-<pre><code class="lang-bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;alias docker=&apos;winpty docker&apos;&quot;</span> &gt;&gt; ~/.bash_profile
-<span class="hljs-built_in">source</span> ~/.bash_profile</code></pre>
-</li></ul>
-<h3 id="&#xC774;&#xC288;2">&#xC774;&#xC288;2</h3><p>&#xCEE8;&#xD14C;&#xB2C8;&#xC5B4; &#xC2E4;&#xD589;&#xC2DC; &#xACBD;&#xB85C; &#xB05D;&#xC5D0; <code>;C</code> &#xAC00; &#xBD99;&#xB294; &#xACBD;&#xC6B0;</p><pre><code class="lang-bash"><span class="hljs-comment"># case1</span>
-The <span class="hljs-built_in">source</span> path <span class="hljs-string">&quot;/c/Users/~/;C&quot;</span>
-<span class="hljs-comment"># case2</span>
- OCI runtime create failed: container_linux.go:346
-: starting container process caused <span class="hljs-string">&quot;exec: \&quot;C:/Program Files/Git/u
-sr/bin/bash.exe\&quot;: stat C:/Program Files/Git/usr/bin/bash.exe: no s
-uch file or directory&quot;</span>: unknown.</code></pre>
-<ul><li><p>&#xC6D0;&#xC778;</p><p>mingw&#xAC00; &#xACBD;&#xB85C;&#xC5D0; &#xB300;&#xD574; &#xBCC0;&#xD658;&#xD558;&#xB824;&#xACE0;&#xD568;. (<code>x;x;C:\MinGW\msys\1.0\x</code>)</p></li>
-<li><p>&#xD574;&#xACB0;&#xBC29;&#xBC95;</p><ul><li><p>&#xACBD;&#xB85C;&#xBCC0;&#xD658;&#xC744; &#xD53C;&#xD558;&#xAE30; &#xC704;&#xD574; <code>/</code>&#xB97C; &#xD65C;&#xC6A9;</p></li>
-<li><p><code>-v &quot;/$PWD:/srv/jekyll&quot;</code> &#xC774; &#xC544;&#xB2CC;<code>-v &quot;/$PWD&quot;:/srv/jekyll</code>&#xB85C; &#xBA85;&#xB839;&#xC5B4; &#xC124;&#xC815;</p></li></ul>
-</li></ul>
-<pre><code class="lang-bash">  <span class="hljs-comment"># ERROR </span>
-  winpty docker run -v <span class="hljs-string">&quot;/<span class="hljs-variable">$PWD</span>:/srv/jekyll&quot;</span>
-  <span class="hljs-comment"># RESOLVED</span>
-  winpty docker run -v <span class="hljs-string">&quot;/<span class="hljs-variable">$PWD</span>&quot;</span>:/srv/jekyll
-  winpty docker run --rm -it ~ //bin/bash</code></pre>
-
+                                <h2 id="&#xC554;&#xB2EC;&#xC758;-&#xBC95;&#xCE59;">&#xC554;&#xB2EC;&#xC758; &#xBC95;&#xCE59;</h2><p>&#xC5B4;&#xB5A4; &#xC791;&#xC5C5;&#xC758; &#xC2DC;&#xAC04; &#xD6A8;&#xC728;&#xC744; &#xAC1C;&#xC120;&#xD560; &#xB54C;, &#xC804;&#xCCB4; &#xC791;&#xC5C5;&#xC2DC;&#xAC04;&#xC5D0; &#xB300;&#xD574; P&#xB9CC;&#xD07C;&#xC758; &#xC791;&#xC5C5;&#xC2DC;&#xAC04;&#xC744; &#xCC28;&#xC9C0;&#xD558;&#xB294; &#xC791;&#xC5C5;&#xC758; &#xD6A8;&#xC728;&#xC744; S&#xB9CC;&#xD07C; &#xD5A5;&#xC0C1;&#xC2DC;&#xCF30;&#xB2E4; &#xAC00;&#xC815;&#xD558;&#xC790;. &#xADF8;&#xB807;&#xB2E4;&#xBA74; &#xC804;&#xCCB4; &#xC791;&#xC5C5; &#xD6A8;&#xC728;&#xC740; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xD5A5;&#xC0C1;&#xB41C;&#xB2E4;.</p><p><img alt="image-20200128224536831" src="image-20200128224536831.png"></p><p>&#xAC00;&#xB839;, &#xC804;&#xCCB4; &#xC791;&#xC5C5; &#xC2DC;&#xAC04; &#xC911;&#xC5D0; 10%&#xB97C; &#xCC28;&#xC9C0;&#xD558;&#xB294; &#xC791;&#xC5C5;&#xC758; &#xC18D;&#xB3C4;&#xB97C; 2&#xBC30; &#xC99D;&#xAC00;&#xC2DC;&#xCF30;&#xB2E4;&#xBA74;, &#xC804;&#xCCB4; &#xC791;&#xC5C5; &#xC18D;&#xB3C4;&#xB294; &#xC57D; 1.05&#xBC30;&#xB85C; &#xC99D;&#xAC00;&#xD55C;&#xB2E4;.</p><p><img alt="image-20200128224603353" src="image-20200128224603353.png"></p><p>&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xC758;&#xBBF8;&#xB97C; &#xC9C0;&#xB2CC;&#xB2E4;.</p><ol><li>&#xC804;&#xCCB4; &#xC791;&#xC5C5;&#xC758; &#xD6A8;&#xC728;&#xC744; &#xCD5C;&#xB300;&#xD55C; &#xC99D;&#xAC00;&#xC2DC;&#xD0A4;&#xACE0; &#xC2F6;&#xB2E4;&#xBA74; &#xADF8; &#xC911;&#xC5D0; &#xAC00;&#xC7A5; &#xBE44;&#xC911;&#xC774; &#xD070; &#xC791;&#xC5C5;&#xBD80;&#xD130; &#xCD08;&#xC810;&#xC744; &#xB9DE;&#xCD94;&#xB294; &#xAC83;&#xC774; &#xC88B;&#xB2E4;.
+</li>
+<li>&#xC77C;&#xBD80; &#xC791;&#xC5C5;&#xB4E4;&#xC774; &#xB354; &#xC774;&#xC0C1; &#xAC1C;&#xC120;&#xC758; &#xC5EC;&#xC9C0;&#xAC00; &#xC5C6;&#xC744; &#xACBD;&#xC6B0; &#xC804;&#xCCB4; &#xC791;&#xC5C5;&#xC774; &#xCD5C;&#xB300; &#xC5B4;&#xB290;&#xC815;&#xB3C4;&#xC758; &#xAC1C;&#xC120; &#xD6A8;&#xC728;&#xC744; &#xBCF4;&#xC77C; &#xC218; &#xC788;&#xB294;&#xC9C0;&#xC5D0; &#xB300;&#xD574; &#xC608;&#xCE21;&#xC774; &#xAC00;&#xB2A5;&#xD558;&#xB2E4;.
+</li></ol>
+<p><img alt="&#xD30C;&#xC77C;:external/upload.wikimedia.org/500px-AmdahlsLaw.svg.png" src="https://w.namu.la/s/4624193cb40cc853d52318c3570d87a11794accb1ed4194a23c9cffff99b8b71ab5e31f8e7362adf5d4527793ee41b887ef801ab9b63af641aab469efff992843309a0316d59fde0d941f0875de8df9364ba043c545a31df994a08815db33fb6"></p><p>&#xBCD1;&#xB82C; &#xCEF4;&#xD4E8;&#xD305;&#xC744; &#xD560; &#xACBD;&#xC6B0;, &#xC77C;&#xBD80; &#xBCD1;&#xB82C;&#xD654; &#xAC00;&#xB2A5;&#xD55C; &#xC791;&#xC5C5;&#xB4E4;&#xC740; &#xC0AC;&#xC2E4;&#xC0C1; &#xACC4;&#xC0B0;&#xC5D0; &#xCC38;&#xC5EC;&#xD558;&#xB294; &#xCEF4;&#xD4E8;&#xD130;&#xC758; &#xAC1C;&#xC218;&#xC5D0; &#xBE44;&#xB840;&#xD574;&#xC11C; &#xC18D;&#xB3C4;&#xAC00; &#xB298;&#xC5B4;&#xB09C;&#xB2E4;.</p><p>&#xC774;&#xB7EC;&#xD55C; &#xACBD;&#xC6B0; &#xC554;&#xB2EC;&#xC758; &#xBC95;&#xCE59;&#xC5D0; &#xC758;&#xD574;&#xC11C; &#xC804;&#xCCB4; &#xC218;&#xD589;&#xC2DC;&#xAC04;&#xC758; &#xAC1C;&#xC120; &#xD6A8;&#xACFC;&#xB294; &#xBCD1;&#xB82C;&#xD654;&#xAC00; &#xBD88;&#xAC00;&#xB2A5;&#xD55C; &#xC791;&#xC5C5;&#xB4E4;&#xC758; &#xBE44;&#xC911;&#xC5D0; &#xD06C;&#xAC8C; &#xC601;&#xD5A5;&#xC744; &#xBC1B;&#xAC8C; &#xB41C;&#xB2E4;.</p><p>&#xC989;, &#xC544;&#xBB34;&#xB9AC; &#xCEF4;&#xD4E8;&#xD130;&#xC758; &#xAC1C;&#xC218;&#xAC00; &#xB298;&#xC5B4;&#xB098;&#xB354;&#xB77C;&#xB3C4; &#xC704;&#xC758; &#xADF8;&#xB9BC;&#xC5D0;&#xC11C; &#xBCF4;&#xB294; &#xAC83; &#xCC98;&#xB7FC; &#xC18D;&#xB3C4;&#xC758; &#xD55C;&#xACC4;&#xB294; &#xC815;&#xD574;&#xC838;&#xC788;&#xB2E4;&#xB294; &#xAC83;.</p>
                                 
                                 </section>
                             
@@ -455,14 +433,10 @@ uch file or directory&quot;</span>: unknown.</code></pre>
 
             
                 
-                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                <a href="../docker/github-packages-for-docker.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: GitHub Packages Registry For Docker">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="../gitbook/gitbook-on-docker.html" class="navigation navigation-next " aria-label="Next page: 도커로 GitBook 구성하기">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -471,7 +445,7 @@ uch file or directory&quot;</span>: unknown.</code></pre>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"윈도우10에서 도커설치하기","level":"2.1","depth":1,"next":{"title":"도커로 GitBook 구성하기","level":"2.2","depth":1,"path":"gitbook/gitbook-on-docker.md","ref":"gitbook/gitbook-on-docker.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docker/docker-on-windows10.md","mtime":"2019-11-10T14:40:40.079Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2020-01-28T15:04:35.701Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"암달의 법칙","level":"8.3","depth":1,"previous":{"title":"GitHub Packages Registry For Docker","level":"8.2","depth":1,"path":"docker/github-packages-for-docker.md","ref":"docker/github-packages-for-docker.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"etc/Amdahls-law.md","mtime":"2020-01-28T15:02:17.019Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2020-01-28T15:04:35.701Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
